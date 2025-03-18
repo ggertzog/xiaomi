@@ -1,0 +1,45 @@
+.header {
+  padding: 56px 57px;
+  width: 100%;
+  display: flex;
+  background: transparent;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 78px;
+  z-index: 2;
+  position: absolute;
+  top: 0;
+}
+
+.logo {
+  height: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.icon {
+  width: 47px;
+  height: 47px;
+}
+
+.brand {
+  width: 47px;
+  height: 8px;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+}
+
+.link {
+  font-family: PT Mono;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 100%;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-decoration-style: solid;
+  color: #ffffff;
+}
