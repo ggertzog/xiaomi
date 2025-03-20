@@ -1,9 +1,20 @@
+@use '../../styles/variables.scss' as *;
+
 .preview {
+  max-width: 0 auto;
   display: flex;
-  height: 51.65vw;
-  background-color: #000;
+  align-items: center;
+  justify-content: center;
+  height: 1031px;
+  width: 100%;
+  width: 1996px;
   position: relative;
   z-index: 1;
+
+  @include media-1996 {
+    height: apxm(1031px);
+    width: apxm(1996px);
+  }
 }
 
 .background {
@@ -13,33 +24,56 @@
   position: absolute;
   inset: 0;
   z-index: 1;
+  object-fit: cover;
+  object-position: center;
 }
 
 .container {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 17px;
   position: relative;
-  width: 100%;
   z-index: 2;
+
+  @include media-1996 {
+    gap: apxm(17px);
+  }
 }
 
 .logo {
-  margin: 425px 0 0 565px;
+  // margin: 425px 0 0 565px;
   z-index: 2;
   width: 836px;
   height: 57px;
   display: block;
   position: relative;
+
+  @include media-1996 {
+    // margin: apxm(425px) 0 0 apxm(565px);
+    width: apxm(836px);
+    height: apxm(57px);
+  }
 }
 
 .text {
-  margin-left: 922px;
+  margin-right: 113px;
   z-index: 2;
   position: relative;
-  font-family: IBM Plex Mono;
+  font-family: $font-family-secondary;
   font-weight: 700;
   font-size: 13px;
   text-transform: uppercase;
-  color: #ffffff;
+  color: $text-color-primary;
+  align-self: flex-end;
+
+  span {
+    text-transform: lowercase;
+  }
+
+  @include media-1996 {
+    margin-right: apxm(113px);
+    font-size: apxm(13px);
+  }
 }

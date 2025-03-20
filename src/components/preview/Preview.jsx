@@ -8,7 +8,7 @@ export default function Preview() {
     <section className={styles.preview}>
       <div className={styles.container}>
         <img className={styles.logo} src={previewTitle} alt="xiaomi" />
-        <p className={styles.text}>Капсульная коллекция, вдохновленная Mi&nbsp;10T series</p>
+        <p className={styles.text}>Капсульная коллекция, вдохновленная M<sapn>i</sapn>&nbsp;10T series</p>
       </div>
 
       {/* Пока нет ссылки на видео использую фото */}

@@ -1,6 +1,8 @@
+@use '../../styles/variables.scss' as *;
+
 .header {
   padding: 56px 57px;
-  width: 100%;
+  width: 1996px;
   display: flex;
   background: transparent;
   align-items: center;
@@ -9,6 +11,12 @@
   z-index: 2;
   position: absolute;
   top: 0;
+
+  @include media-1996 {
+    padding: apxm(56px) apxm(57px);
+    gap: apxm(78px);
+    width: apxm(1996px);
+  }
 }
 
 .logo {
@@ -16,30 +24,53 @@
   display: flex;
   flex-direction: column;
   gap: 9px;
+
+  @include media-1996 {
+    height: apxm(64px);
+    gap: apxm(9px);
+  }
 }
 
 .icon {
   width: 47px;
   height: 47px;
+
+  @include media-1996 {
+    width: apxm(47px);
+    height: apxm(47px);
+  }
 }
 
 .brand {
   width: 47px;
   height: 8px;
+
+  @include media-1996 {
+    width: apxm(47px);
+    height: apxm(8px);
+  }
 }
 
 .nav {
   display: flex;
   gap: 20px;
+
+  @include media-1996 {
+    gap: apxm(20px);
+  }
 }
 
 .link {
-  font-family: PT Mono;
+  font-family: $font-family-primary;
   font-weight: 700;
   font-size: 16px;
   line-height: 100%;
   text-transform: uppercase;
   text-decoration: underline;
   text-decoration-style: solid;
-  color: #ffffff;
+  color: $text-color-primary;
+
+  @include media-1996 {
+    font-size: apxm(16px);
+  }
 }
