@@ -4,6 +4,7 @@ import Header from '../header/Header';
 import Preview from '../preview/Preview';
 import Hero from '../hero/Hero';
 import Concept from '../concept/Concept';
+import Filter from '../filter/Filter';
 
 export default function App () {
   return (
@@ -12,6 +13,7 @@ export default function App () {
       <Preview />
       <Hero />
       <Concept />
+      <Filter />
     </>
   );
 };

@@ -1,0 +1,96 @@
+@use '../../styles/variables.scss' as *;
+
+.concept {
+  width: 1996px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include media-1996 {
+    width: apxm(1996px);
+  }
+}
+
+.container {
+  width: 1084px;
+  display: flex;
+  justify-content: center;
+  gap: 216px;
+  position: relative;
+  top: -70px;
+
+  @include media-1996 {
+    width: apxm(1084px);
+    gap: apxm(216px);
+    top: apxm(-70px);
+  }
+}
+
+.letterA {
+  width: 182px;
+  height: 300px;
+  position: absolute;
+  left: 556px;
+  top: 189px;
+  object-fit: cover;
+  object-position: center;
+
+  @include media-1996 {
+    width: apxm(182px);
+    height: apxm(300px);
+    left: apxm(556px);
+    top: apxm(189px);
+  }
+}
+
+.video {
+  width: 216px;
+  height: 449px;
+  position: relative;
+  top: -70px;
+  z-index: 3;
+
+  @include media-1996 {
+    width: apxm(216px);
+    height: apxm(449px);
+    top: apxm(-70px);
+  }
+}
+
+.info {
+  width: 432px;
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+
+  @include media-1996 {
+    width: apxm(432px);
+    gap: apxm(21px);
+  }
+}
+
+.title {
+  font-family: $font-family-primary;
+  color: $text-color-secondary;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 100%;
+  text-transform: uppercase;
+
+  @include media-1996 {
+    font-size: apxm(40px);
+  }
+}
+
+.text {
+  font-family: $font-family-secondary;
+  color: $text-color-primary;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+
+  @include media-1996 {
+    font-size: apxm(12px);
+    line-height: apxm(20px);
+  }
+}
