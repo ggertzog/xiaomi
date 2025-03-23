@@ -5,8 +5,12 @@ import Preview from '../preview/Preview';
 import Hero from '../hero/Hero';
 import Concept from '../concept/Concept';
 import Filter from '../filter/Filter';
+import Collection from '../collection/Сollection';
+import Video from '../video/Video';
+import Backstage from '../backstage/Backstage';
+import Shop from '../shop/Shop';
 
-export default function App () {
+export default function App() {
   return (
     <>
       <Header />
@@ -14,6 +18,10 @@ export default function App () {
       <Hero />
       <Concept />
       <Filter />
+      <Collection />
+      <Video />
+      <Backstage />
+      <Shop />
     </>
   );
-};
+}

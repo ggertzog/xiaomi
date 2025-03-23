@@ -1,20 +1,20 @@
 @use '../../styles/variables.scss' as *;
 
 .header {
-  padding: 56px 57px;
+  padding: 53px 65px;
   width: 1996px;
   display: flex;
   background: transparent;
   align-items: center;
   justify-content: flex-end;
-  gap: 78px;
+  gap: 72px;
   z-index: 2;
   position: absolute;
   top: 0;
 
   @include media-1996 {
-    padding: apxm(56px) apxm(57px);
-    gap: apxm(78px);
+    padding: apxm(53px) apxm(65px);
+    gap: apxm(72px);
     width: apxm(1996px);
   }
 }

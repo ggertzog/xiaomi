@@ -21,7 +21,7 @@ export default function Filter() {
           <div className={styles.videoContainer}>
             <img className={styles.video} src={phoneMain} alt="video" />
             <p className={styles.description}>
-              Неоново-голубые и&nbsp;электрически-лиловые оттенки для создания футуристических
+              Неоново-голубые и электрически-лиловые оттенки для создания футуристических
               эффектов.
             </p>
           </div>

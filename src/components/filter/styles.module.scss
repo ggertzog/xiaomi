@@ -28,15 +28,15 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 11px;
 
   @include media-1996 {
-    gap: apxm(10px);
+    gap: apxm(11px);
   }
 }
 
 .title {
-  margin-left: 549px;
+  margin-left: 540px;
   font-family: $font-family-primary;
   font-weight: 400;
   font-size: 40px;
@@ -44,7 +44,7 @@
   color: $text-color-secondary;
 
   @include media-1996 {
-    margin-left: apxm(549px);
+    margin-left: apxm(540px);
     font-size: apxm(40px);
   }
 }
@@ -52,11 +52,11 @@
 .buttonContainer {
   display: flex;
   gap: 15px;
-  margin-left: 252px;
+  margin-left: 242px;
 
   @include media-1996 {
     gap: apxm(15px);
-    margin-left: apxm(252px);
+    margin-left: apxm(242px);
   }
 }
 
@@ -82,10 +82,10 @@
 
 .content {
   display: flex;
-  gap: 246px;
+  gap: 248px;
 
   @include media-1996 {
-    gap: apxm(246px);
+    gap: apxm(248px);
   }
 }
 
@@ -93,11 +93,11 @@
   padding-left: 122px;
   display: flex;
   flex-direction: column;
-  gap: 21.95px;
+  gap: 24px;
 
   @include media-1996 {
-    padding-left: apxm(122px);
-    gap: apxm(21.95px);
+    padding-left: apxm(112px);
+    gap: apxm(24px);
   }
 }
 
@@ -112,6 +112,7 @@
 }
 
 .description {
+  margin-left: 5px;
   font-family: $font-family-primary;
   font-weight: 400;
   font-size: 14px;
@@ -124,17 +125,19 @@
     font-size: apxm(14px);
     line-height: apxm(18px);
     width: apxm(260px);
+    margin-left: apxm(5px);
   }
 }
 
 .nextFilter {
+  margin-top: 274px;
   display: flex;
   flex-direction: column;
   width: 214px;
-  align-self: flex-end;
   gap: 52px;
 
   @include media-1996 {
+    margin-top: apxm(274px);
     width: apxm(214px);
     gap: apxm(52px);
   }
@@ -159,6 +162,11 @@
   flex-direction: column;
   background-color: transparent;
   border: none;
+  gap: 3px;
+
+  @include media-1996 {
+    gap: apxm(3px);
+  }
 }
 
 .filterButton a {
@@ -180,29 +188,29 @@
 }
 
 .arrow {
-  width: 214px;
+  width: 172px;
   height: 29px;
 
   @include media-1996 {
-    width: apxm(214px);
+    width: apxm(172px);
     height: apxm(29px);
   }
 }
 
 .phone {
-  bottom: -160px;
-  left: 540px;
+  bottom: -202px;
+  left: 635px;
   position: absolute;
   display: flex;
   flex-direction: column;
   width: 120px;
-  gap: 11px;
+  gap: 14px;
 
   @include media-1996 {
     width: apxm(120px);
-    gap: apxm(11px);
-    bottom: apxm(-160px);
-    left: apxm(640px);
+    gap: apxm(14px);
+    bottom: apxm(-202px);
+    left: apxm(635px);
   }
 }
 
@@ -217,6 +225,7 @@
 }
 
 .link {
+  margin-left: 2px;
   font-family: $font-family-primary;
   font-weight: 700;
   font-size: 14px;
@@ -229,6 +238,7 @@
   color: $text-color-secondary;
 
   @include media-1996 {
+    margin-left: apxm(2px);
     font-size: apxm(14px);
   }
 }

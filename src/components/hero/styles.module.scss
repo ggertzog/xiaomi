@@ -12,7 +12,6 @@
 }
 
 .figure {
-  //   padding: 47.95px 101px 99.05px 119px;
   padding-top: 47.95px;
   width: 1084px;
   height: 687px;
@@ -20,28 +19,29 @@
   top: -87.95px;
   display: flex;
   justify-content: center;
-  gap: 108px;
+  gap: 115px;
 
   @include media-1996 {
     width: apxm(1084px);
     height: apxm(687px);
-    // padding: apxm(47.95px) apxm(101px) apxm(99.05px) apxm(119px);
     padding-top: apxm(47.95px);
     top: apxm(-87.95px);
-    gap: apxm(108px);
+    gap: apxm(115px);
   }
 }
 
 .background {
   position: absolute;
   inset: 0;
-  width: 1056.82px;
+  left: -10px;
+  width: 1084px;
   height: 687px;
   z-index: 2;
 
   @include media-1996 {
-    width: apxm(1056.82px);
+    width: apxm(1084px);
     height: apxm(687px);
+    left: apxm(-10px);
   }
 }
 
@@ -51,9 +51,11 @@
   flex-direction: column;
   width: 216px;
   z-index: 3;
+  gap: 30px;
 
   @include media-1996 {
-    width: apxm(216px);
+    width: apxm(218px);
+    gap: apxm(30px);
   }
 }
 
@@ -64,6 +66,7 @@
     margin-top: apxm(35px);
   }
 }
+
 
 .text {
   font-family: $font-family-secondary;
@@ -99,14 +102,14 @@
   height: 656.09px;
   position: absolute;
   top: -161.05px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 326px;
   z-index: 3;
 
   @include media-1996 {
     width: apxm(419.49px);
     height: apxm(656.09px);
     top: apxm(-161.05px);
+    left: apxm(326px);
   }
 }
 
@@ -132,13 +135,13 @@
   height: 128.99px;
   position: absolute;
   z-index: 4;
-  left: 116px;
+  left: 106px;
   top: -87.31px;
 
   @include media-1996 {
     width: apxm(416.69px);
     height: apxm(128.99px);
-    left: apxm(116px);
+    left: apxm(106px);
     top: apxm(-87.31px);
   }
 }
