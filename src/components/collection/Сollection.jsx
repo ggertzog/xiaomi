@@ -1,11 +1,14 @@
 import React from 'react';
 import styles from './styles.module.scss';
-import arrow from '../../assets/arrow.png';
-import collectionBackground from '../../assets/collection-03.png';
-import slider1 from '../../assets/slider1.png';
-import slider2 from '../../assets/slider2.png';
-import cap from '../../assets/cap.png';
-import jacket from '../../assets/jacket.png';
+
+import { Button, NextButton } from '../ui';
+
+import arrow from '@/assets/arrow.png';
+import collectionBackground from '@/assets/collection-03.png';
+import slider1 from '@/assets/slider1.png';
+import slider2 from '@/assets/slider2.png';
+import cap from '@/assets/cap.png';
+import jacket from '@/assets/jacket.png';
 
 export default function Сollection() {
   return (
@@ -19,11 +22,11 @@ export default function Сollection() {
           <div className={styles.box}>
             <h2 className={styles.title}>коллекция</h2>
             <div className={styles.buttonContainer}>
-              <button className={styles.button}>look01</button>
-              <button className={styles.button}>look02</button>
-              <button className={styles.button}>look03</button>
-              <button className={styles.button}>look04</button>
-              <button className={styles.button}>look05</button>
+              <Button title="look01" />
+              <Button title="look02" />
+              <Button title="look03" />
+              <Button title="look04" />
+              <Button title="look05" />
             </div>
           </div>
 
@@ -34,10 +37,9 @@ export default function Сollection() {
 
           <div className={styles.nextLook}>
             <p>03 / 05</p>
-            <button className={styles.lookButton}>
-              <a href="#">следующий образ</a>
+            <NextButton title="следующий образ">
               <img className={styles.arrow} src={arrow} alt="arrow" />
-            </button>
+            </NextButton>
           </div>
         </div>
 

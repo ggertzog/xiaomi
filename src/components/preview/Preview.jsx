@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles.module.scss';
-import previewImage from '../../assets/preview-image.png';
-import previewTitle from '../../assets/preview-title.png';
+import previewImage from '@/assets/preview-image.png';
+import previewTitle from '@/assets/preview-title.png';
 
 export default function Preview() {
   return (

@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './styles.module.scss';
 
-import heroBackground from '../../assets/hero-background.png';
-import heroMain from '../../assets/hero-main.png';
-import heroLogo from '../../assets/hero-icon.png';
-import model from '../../assets/model.png';
+import heroBackground from '@/assets/hero-background.png';
+import heroMain from '@/assets/hero-main.png';
+import heroLogo from '@/assets/hero-icon.png';
+import model from '@/assets/model.png';
 
 export default function Hero() {
   return (

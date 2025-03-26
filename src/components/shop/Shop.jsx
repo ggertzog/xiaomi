@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './styles.module.scss';
-import youtube from '../../assets/youtube.svg';
-import insta from '../../assets/insta.svg';
-import fb from '../../assets/fb.svg';
-import vk from '../../assets/vk.svg';
-import tiktok from '../../assets/tiktok.svg';
-import mi from '../../assets/mi.svg';
+import youtube from '@/assets/youtube.svg';
+import insta from '@/assets/insta.svg';
+import fb from '@/assets/fb.svg';
+import vk from '@/assets/vk.svg';
+import tiktok from '@/assets/tiktok.svg';
+import mi from '@/assets/mi.svg';
 
 export default function Shop() {
   return (

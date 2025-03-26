@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles.module.scss';
-import logo from '../../assets/logo.png';
-import brand from '../../assets/xiaomi.png';
+import logo from '@/assets/logo.png';
+import brand from '@/assets/xiaomi.png';
 
 export default function Header() {
   return (

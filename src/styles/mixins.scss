@@ -1,0 +1,73 @@
+@use './variables.scss' as *;
+
+@mixin title {
+  font-family: $font-family-primary;
+  font-weight: 400;
+  font-size: 40px;
+  text-transform: uppercase;
+  color: $text-color-secondary;
+
+  @include media-1996 {
+    font-size: apxm(40px);
+  }
+}
+
+@mixin hover-effect {
+  &:hover {
+    opacity: 50%;
+  }
+  
+  &:focus-visible {
+    outline: 2px solid $text-color-primary;
+    outline-offset: 2px;
+  }
+  
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+@mixin button-base {
+  background-color: transparent;
+  border: none;
+  font-family: $font-family-primary;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-thickness: 0%;
+  color: $text-color-primary;
+  cursor: pointer;
+  opacity: 100%;
+  transition: 0.4s ease-in-out opacity;
+}
+
+@mixin button {
+  @include button-base;
+  font-size: 18px;
+  
+  @include media-1996 {
+    font-size: apxm(18px);
+  }
+  
+  @include hover-effect;
+}
+
+@mixin nextButton {
+  @include button-base;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  text-align: left;
+  
+  @include media-1996 {
+    font-size: apxm(16px);
+    gap: apxm(3px);
+  }
+  
+  @include hover-effect;
+}
+

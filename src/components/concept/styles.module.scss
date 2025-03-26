@@ -1,4 +1,5 @@
 @use '../../styles/variables.scss' as *;
+@import '@/styles/mixins.scss';
 
 .concept {
   width: 1996px;
@@ -70,16 +71,18 @@
 }
 
 .title {
-  font-family: $font-family-primary;
-  color: $text-color-secondary;
-  font-weight: 400;
-  font-size: 40px;
-  line-height: 100%;
-  text-transform: uppercase;
+  // font-family: $font-family-primary;
+  // color: $text-color-secondary;
+  // font-weight: 400;
+  // font-size: 40px;
+  // line-height: 100%;
+  // text-transform: uppercase;
 
-  @include media-1996 {
-    font-size: apxm(40px);
-  }
+  // @include media-1996 {
+  //   font-size: apxm(40px);
+  // }
+
+  @include title;
 }
 
 .text {

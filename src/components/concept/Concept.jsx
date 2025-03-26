@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './styles.module.scss';
-import letterA from '../../assets/letter-a.png';
-import conceptVideo from '../../assets/concept-video.png';
+import letterA from '@/assets/letter-a.png';
+import conceptVideo from '@/assets/concept-video.png';
 
 export default function Concept() {
   return (

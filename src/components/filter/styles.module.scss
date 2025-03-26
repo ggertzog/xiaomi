@@ -1,4 +1,5 @@
 @use '../../styles/variables.scss' as *;
+@import '@/styles/mixins.scss';
 
 .filter {
   width: 1996px;
@@ -36,16 +37,12 @@
 }
 
 .title {
+  @include title;
+
   margin-left: 540px;
-  font-family: $font-family-primary;
-  font-weight: 400;
-  font-size: 40px;
-  text-transform: uppercase;
-  color: $text-color-secondary;
 
   @include media-1996 {
     margin-left: apxm(540px);
-    font-size: apxm(40px);
   }
 }
 
@@ -57,26 +54,6 @@
   @include media-1996 {
     gap: apxm(15px);
     margin-left: apxm(242px);
-  }
-}
-
-.button {
-  background-color: transparent;
-  border: none;
-  font-family: $font-family-primary;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 100%;
-  letter-spacing: 0%;
-  text-transform: uppercase;
-  text-decoration: underline;
-  text-decoration-style: solid;
-  text-decoration-thickness: 0%;
-  color: $text-color-primary;
-  cursor: pointer;
-
-  @include media-1996 {
-    font-size: apxm(18px);
   }
 }
 
@@ -154,36 +131,6 @@
 
   @include media-1996 {
     font-size: apxm(10px);
-  }
-}
-
-.filterButton {
-  display: flex;
-  flex-direction: column;
-  background-color: transparent;
-  border: none;
-  gap: 3px;
-
-  @include media-1996 {
-    gap: apxm(3px);
-  }
-}
-
-.filterButton a {
-  font-family: $font-family-primary;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 100%;
-  letter-spacing: 0%;
-  text-transform: uppercase;
-  text-decoration: underline;
-  text-decoration-style: solid;
-  text-align: left;
-  text-decoration-thickness: 0%;
-  color: $text-color-primary;
-
-  @include media-1996 {
-    font-size: apxm(16px);
   }
 }
 

@@ -9,6 +9,7 @@ import Collection from '../collection/Сollection';
 import Video from '../video/Video';
 import Backstage from '../backstage/Backstage';
 import Shop from '../shop/Shop';
+import Slider from '../slider/Slider';
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
       <Video />
       <Backstage />
       <Shop />
+      <Slider />
     </>
   );
 }
