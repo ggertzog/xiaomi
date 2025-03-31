@@ -1,15 +1,14 @@
 import React from 'react';
 import styles from './styles.module.scss';
-import Header from '../header/Header';
-import Preview from '../preview/Preview';
-import Hero from '../hero/Hero';
-import Concept from '../concept/Concept';
-import Filter from '../filter/Filter';
-import Collection from '../collection/Сollection';
-import Video from '../video/Video';
-import Backstage from '../backstage/Backstage';
-import Shop from '../shop/Shop';
-import Slider from '../slider/Slider';
+import Header from '../shared/header/Header';
+import Preview from '../shared/preview/Preview';
+import Hero from '../shared/hero/Hero';
+import Concept from '../shared/concept/Concept';
+import Collection from '../shared/collection/Сollection';
+import VideoSection from '../shared/video-section/VideoSection';
+import Backstage from '../shared/backstage/Backstage';
+import Shop from '../shared/shop/Shop';
+import FilterSlider from '../shared/filter-slider/FilterSlider';
 
 export default function App() {
   return (
@@ -18,12 +17,11 @@ export default function App() {
       <Preview />
       <Hero />
       <Concept />
-      <Filter />
+      <FilterSlider />
       <Collection />
-      <Video />
+      <VideoSection />
       <Backstage />
       <Shop />
-      <Slider />
     </>
   );
 }

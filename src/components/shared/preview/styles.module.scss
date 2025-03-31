@@ -1,0 +1,73 @@
+@use '@/styles/variables.scss' as *;
+
+.preview {
+  display: flex;
+  height: 1031px;
+  width: 1996px;
+  position: relative;
+  z-index: 1;
+
+  @include media-1996 {
+    height: apxm(1031px);
+    width: apxm(1996px);
+  }
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.video {
+  height: 100%;
+}
+
+.container {
+  margin-left: 565px;
+  padding-top: 422px;
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  z-index: 2;
+
+  @include media-1996 {
+    gap: apxm(17px);
+    margin-left: apxm(565px);
+    padding-top: apxm(422px);
+  }
+}
+
+.logo {
+  z-index: 2;
+  width: 836px;
+  height: 57px;
+  display: block;
+  position: relative;
+
+  @include media-1996 {
+    width: apxm(836px);
+    height: apxm(57px);
+  }
+}
+
+.text {
+  margin-right: 100px;
+  z-index: 2;
+  position: relative;
+  font-family: $font-family-secondary;
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: uppercase;
+  color: $text-color-primary;
+  align-self: flex-end;
+
+  span {
+    text-transform: lowercase;
+  }
+
+  @include media-1996 {
+    margin-right: apxm(100px);
+    font-size: apxm(13px);
+  }
+}

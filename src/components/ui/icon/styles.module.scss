@@ -1,0 +1,32 @@
+@use '@/styles/variables.scss' as *;
+
+.link {
+  position: relative;
+  margin: 0;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:first-of-type .img {
+    width: 33px;
+    height: 25px;
+
+    @include media-1996 {
+      width: apxm(33px);
+      height: apxm(25px);
+    }
+  }
+}
+
+.img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  object-position: center;
+
+  @include media-1996 {
+    width: apxm(32px);
+    height: apxm(32px);
+  }
+}
