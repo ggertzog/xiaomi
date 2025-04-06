@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import styles from './styles.module.scss';
+import { cn } from '@/lib/utils.js';
 
 import { NextButton, Button } from '@/components/ui';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Controller } from 'swiper/modules';
 import 'swiper/scss';
+import 'swiper/scss/effect-creative';
 
 import { horizontalContent, verticalContent } from './slider-images';
 
@@ -17,6 +19,13 @@ const buttonData = [
   { id: 2, title: 'color focus' },
   { id: 3, title: 'gold vibes' },
   { id: 4, title: 'black ice' },
+];
+
+const backgroundWords = [
+  { word: 'киберпанк' },
+  { word: 'цветовой фокус' },
+  { word: 'золотые волны' },
+  { word: 'черный лед' },
 ];
 
 export default function Slider() {
@@ -50,7 +59,12 @@ export default function Slider() {
           <h3 className={styles.title}>фильтры</h3>
           <div className={styles.buttonContainer}>
             {buttonData.map((item, index) => (
-              <Button key={item.id} title={item.title} onClick={() => handleSlideTo(index)} />
+              <Button
+                key={item.id}
+                title={item.title}
+                active={index === currentSlide - 1 ? 'activeButton' : ''}
+                onClick={() => handleSlideTo(index)}
+              />
             ))}
           </div>
         </div>
@@ -61,8 +75,20 @@ export default function Slider() {
               <div className={styles.sliderContainer}>
                 <Swiper
                   className={styles.sliderFirst}
-                  spaceBetween={10}
                   modules={[Controller]}
+                  spaceBetween={330}
+                  speed={1000}
+                  onSlideChangeTransitionStart={(swiper) => {
+                    const nextSlide = swiper.slides[swiper.activeIndex];
+
+                    nextSlide.style.transition = 'none';
+                    nextSlide.style.width = '0%';
+
+                    setTimeout(() => {
+                      nextSlide.style.transition = 'width 0.7s ease-out';
+                      nextSlide.style.width = '100%';
+                    }, 150);
+                  }}
                   onSwiper={(swiper) => setFirstSwiper(swiper)}
                   onSlideChange={(swiper) => setCurrentSlide(swiper.activeIndex + 1)}>
                   {horizontalContent.map((item) => (
@@ -74,8 +100,10 @@ export default function Slider() {
 
                 <Swiper
                   className={styles.sliderSecond}
-                  spaceBetween={10}
                   modules={[Controller]}
+                  spaceBetween={330}
+                  speed={1000}
+                  
                   onSwiper={(swiper) => setSecondSwiper(swiper)}>
                   {verticalContent.map((item) => (
                     <SwiperSlide key={item.id}>
@@ -86,7 +114,7 @@ export default function Slider() {
               </div>
               <div className={styles.nextFilter}>
                 <p>
-                  {String(currentSlide).padStart(2, '0')} / {String(4).padStart(2, '0')}
+                  {String(currentSlide).padStart(2, '0')} / {String(buttonData.length).padStart(2, '0')}
                 </p>
                 <NextButton title="Следующий фильтр" onClick={handleNext}>
                   <img className={styles.arrow} src={arrow} alt="arrow" />
@@ -107,6 +135,22 @@ export default function Slider() {
             купить вещи из&nbsp;коллекции
           </a>
         </div>
+      </div>
+      <div className={styles.backgroundSlider}>
+        {backgroundWords.map((item, wordIndex) => (
+          <p
+            key={wordIndex}
+            className={cn(
+              styles.customText,
+              wordIndex === currentSlide - 1 && styles.customTextActive,
+            )}>
+            {item.word.split('').map((letter, letterIndex) => (
+              <span key={`${wordIndex}-${letterIndex}`} style={{ '--char-index': letterIndex }}>
+                {letter}
+              </span>
+            ))}
+          </p>
+        ))}
       </div>
     </section>
   );

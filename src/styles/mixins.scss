@@ -30,12 +30,12 @@
 @mixin button-base {
   background-color: transparent;
   border: none;
+  // border-bottom: 1px solid $text-color-primary;
   font-family: $font-family-primary;
   font-weight: 700;
   line-height: 100%;
   letter-spacing: 0%;
   text-transform: uppercase;
-  text-decoration: underline;
   text-decoration-style: solid;
   text-decoration-thickness: 0%;
   color: $text-color-primary;
@@ -71,3 +71,18 @@
   @include hover-effect;
 }
 
+@mixin backgoundWord {
+  font-weight: 700;
+  letter-spacing: -7%;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-clip: text;
+  color: transparent;
+  user-select: none;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-user-select: none;
+}

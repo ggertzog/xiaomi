@@ -1,11 +1,11 @@
-import cyberpunk1 from '@/assets/cyberpunk1.png';
-import cyberpunk2 from '@/assets/cyberpunk2.png';
-import colorFocus1 from '@/assets/color-focus1.png';
-import colorFocus2 from '@/assets/color-focus2.png';
-import goldVibes1 from '@/assets/gold-vibes1.png';
-import goldVibes2 from '@/assets/gold-vibes2.png';
-import blackIce1 from '@/assets/black-ice1.png';
-import blackIce2 from '@/assets/black-ice2.png';
+import cyberpunk1 from '@/assets/filter-slider/cyberpunk1.png';
+import cyberpunk2 from '@/assets/filter-slider/cyberpunk2.png';
+import colorFocus1 from '@/assets/filter-slider/color-focus1.png';
+import colorFocus2 from '@/assets/filter-slider/color-focus2.png';
+import goldVibes1 from '@/assets/filter-slider/gold-vibes1.png';
+import goldVibes2 from '@/assets/filter-slider/gold-vibes2.png';
+import blackIce1 from '@/assets/filter-slider/black-ice1.png';
+import blackIce2 from '@/assets/filter-slider/black-ice2.png';
 
 const horizontalContent = [
   { id: 1, content: cyberpunk1 },

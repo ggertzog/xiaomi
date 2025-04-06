@@ -1,5 +1,48 @@
 @use '@/styles/mixins.scss' as *;
+@use '@/styles/variables.scss' as *;
 
 .button {
   @include button;
+  position: relative;
+  padding-top: 0;
 }
+
+.buttonActive {
+  border-bottom: 1px solid $text-color-secondary;
+
+  .underline::after {
+    width: 100%;
+  }
+
+  @include media-1996 {
+    .underline::after {
+      height: apxm(8px);
+    }
+  }
+}
+
+.underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  background-color: $text-color-primary;
+  width: 100%;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    height: 8px;
+    width: 0;
+    background-color: $text-color-secondary;
+    transition: width 0.3s ease-out;
+
+    @include media-1996 {
+      bottom: apxm(-5px);
+      height: apxm(8px);
+    }
+  }
+}
+
