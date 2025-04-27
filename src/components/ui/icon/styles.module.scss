@@ -16,6 +16,16 @@
       width: apxm(33px);
       height: apxm(25px);
     }
+
+    @include media-1280 {
+      width: apxm(33px);
+      height: apxm(25px);
+    }
+
+    @include media-375 {
+      width: apxm(33.18px);
+      height: apxm(24.88px);
+    }
   }
 }
 
@@ -26,6 +36,16 @@
   object-position: center;
 
   @include media-1996 {
+    width: apxm(32px);
+    height: apxm(32px);
+  }
+
+  @include media-1280 {
+    width: apxm(32px);
+    height: apxm(32px);
+  }
+
+  @include media-375 {
     width: apxm(32px);
     height: apxm(32px);
   }

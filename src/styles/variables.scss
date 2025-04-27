@@ -47,8 +47,8 @@ $dbreak: 1920px !default;
 }
 
 @mixin media-375 {
-  @media screen and (max-width: 375px) {
-    $dbreak: 375px !global;
+  @media screen and (max-width: 376px) {
+    $dbreak: 376px !global;
     @content;
   }
 }

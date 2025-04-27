@@ -1,17 +1,26 @@
 @use '@/styles/variables.scss' as *;
 
 .shop {
-  padding-top: 526px;
-  padding-bottom: 210.95px;
   width: 1996px;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
+  top: -147px;
 
   @include media-1996 {
     width: apxm(1996px);
-    padding-top: apxm(526px);
-    padding-bottom: apxm(210.95px);
+    top: apxm(-147px);
+  }
+
+  @include media-1280 {
+    width: 100%;
+    top: apxm(211px);
+  }
+
+  @include media-375 {
+    top: apxm(40px);
+    padding-bottom: apxm(100px);
   }
 }
 
@@ -22,6 +31,14 @@
 
   @include media-1996 {
     width: apxm(866px);
+  }
+
+  @include media-1280 {
+    width: apxm(854px);
+  }
+
+  @include media-375 {
+    width: 100%;
   }
 }
 
@@ -36,6 +53,15 @@
 
   @include media-1996 {
     font-size: apxm(40px);
+  }
+
+  @include media-1280 {
+    font-size: apxm(40px);
+  }
+
+  @include media-375 {
+    font-size: apxm(30px);
+    margin-left: apxm(32px);
   }
 }
 
@@ -54,6 +80,20 @@
     width: apxm(634px);
     font-size: apxm(14px);
     line-height: apxm(18px);
+  }
+
+  @include media-1280 {
+    margin-top: apxm(35px);
+    width: apxm(634px);
+    font-size: apxm(14px);
+    line-height: apxm(18px);
+  }
+
+  @include media-375 {
+    font-size: apxm(14px);
+    line-height: apxm(20px);
+    width: apxm(312px);
+    margin-left: apxm(32px);
   }
 
   span {
@@ -77,6 +117,21 @@
     font-size: apxm(14px);
     line-height: apxm(18px);
   }
+
+  @include media-1280 {
+    margin-top: apxm(25px);
+    width: apxm(604px);
+    font-size: apxm(14px);
+    line-height: apxm(18px);
+  }
+
+  @include media-375 {
+    font-size: apxm(14px);
+    line-height: apxm(18px);
+    width: apxm(312px);
+    margin-left: apxm(32px);
+    margin-top: apxm(13px);
+  }
 }
 
 .buttonContainer {
@@ -87,6 +142,18 @@
   @include media-1996 {
     margin-top: apxm(45px);
     gap: apxm(26px);
+  }
+
+  @include media-1280 {
+    margin-top: apxm(45px);
+    gap: apxm(26px);
+  }
+
+  @include media-375 {
+    margin-top: apxm(29px);
+    margin-left: apxm(32px);
+    flex-direction: column;
+    gap: apxm(16px);
   }
 }
 
@@ -113,6 +180,22 @@
     font-size: apxm(15px);
     line-height: apxm(20px);
   }
+
+  @include media-1280 {
+    padding: apxm(27px) 0;
+    width: apxm(399px);
+    border-radius: apxm(10px);
+    font-size: apxm(15px);
+    line-height: apxm(20px);
+  }
+
+  @include media-375 {
+    width: apxm(312px);
+    padding: apxm(20px) 0;
+    border-radius: apxm(10px);
+    font-size: apxm(15px);
+    line-height: apxm(20px);
+  }
 }
 
 .button:nth-of-type(2) {
@@ -120,6 +203,15 @@
 
   @include media-1996 {
     width: apxm(429px);
+  }
+
+  @include media-1280 {
+    width: apxm(429px);
+  }
+
+  @include media-375 {
+    width: apxm(312px);
+    padding: apxm(22px) 0;
   }
 }
 
@@ -135,10 +227,23 @@
     margin-left: apxm(5px);
     gap: apxm(15px);
   }
+
+  @include media-1280 {
+    margin-top: apxm(107px);
+    margin-left: apxm(5px);
+    gap: apxm(16px);
+  }
+
+  @include media-375 {
+    width: apxm(312px);
+    margin-left: apxm(32px);
+    gap: apxm(16px);
+    margin-top: apxm(62px);
+  }
 }
 
 .copyright {
-  margin-top: 40px;
+  margin-top: 45px;
   font-family: $font-family-primary;
   color: $text-color-primary;
   font-weight: 400;
@@ -148,8 +253,22 @@
   text-transform: uppercase;
 
   @include media-1996 {
-    margin-top: apxm(40px);
+    margin-top: apxm(45px);
     font-size: apxm(11px);
     line-height: apxm(18px);
+  }
+
+  @include media-1280 {
+    margin-top: apxm(45px);
+    font-size: apxm(11px);
+    line-height: apxm(18px);
+  }
+
+  @include media-375 {
+    margin-top: apxm(25px);
+    margin-left: apxm(32px);
+    font-size: apxm(11px);
+    line-height: apxm(18px);
+    width: apxm(220px);
   }
 }

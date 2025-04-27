@@ -1,6 +1,6 @@
 @use '@/styles/variables.scss' as *;
 
-.video {
+.videoContainer {
   width: 1996px;
   height: 1025px;
 
@@ -8,15 +8,22 @@
     width: apxm(1996px);
     height: apxm(1025px);
   }
+
+  @include media-375 {
+    margin-top: apxm(830px);
+    width: apxm(375px);
+    height: apxm(197px);
+  }
 }
 
-.image {
-  // width: 100%;
+.video {
   height: 1025px;
-  // object-fit: cover;
-  // object-position: center;
-  
+
   @include media-1996 {
     height: apxm(1025px);
+  }
+
+  @include media-375 {
+    height: apxm(197px);
   }
 }

@@ -5,8 +5,8 @@ import { Video } from '../../ui';
 
 export default function VideoSection() {
   return (
-    <section className={styles.video}>
-      <Video src={forestVideo} className={styles.image} />
+    <section className={styles.videoContainer}>
+      <Video src={forestVideo} className={styles.video} />
     </section>
   );
 }

@@ -1,16 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import styles from './styles.module.scss';
 import { cn } from '@/lib/utils.js';
-
 import { NextButton, Button } from '@/components/ui';
-
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Controller } from 'swiper/modules';
 import 'swiper/scss';
 import 'swiper/scss/effect-creative';
-
-import { horizontalContent, verticalContent } from './slider-images';
-
+import { content } from './slider-images';
 import arrow from '@/assets/arrow.png';
 import phone from '@/assets/phone.png';
 
@@ -28,35 +22,60 @@ const backgroundWords = [
   { word: 'черный лед' },
 ];
 
+const ANIMATION_STAGES = {
+  CURRENTLY: 'currently',
+  EXITING: 'exiting',
+  ENTERING: 'entering',
+};
+
 export default function Slider() {
-  const [firstSwiper, setFirstSwiper] = useState(null);
-  const [secondSwiper, setSecondSwiper] = useState(null);
   const [currentSlide, setCurrentSlide] = useState(1);
+  const [animationStage, setAnimationStage] = useState(ANIMATION_STAGES.ENTERING);
+  const [prevSlideIndex, setPrevSlideIndex] = useState(null);
+  const [animationDelays, setAnimationDelays] = useState({});
 
-  useEffect(() => {
-    if (firstSwiper && secondSwiper) {
-      firstSwiper.controller.control = secondSwiper;
-      secondSwiper.controller.control = firstSwiper;
-    }
-  }, [firstSwiper, secondSwiper]);
+  const startAnimation = (nextSlide, index) => {
+    const delays = {};
+    content[index].forEach((_, i) => {
+      delays[i] = i * 150;
+    });
+    setAnimationDelays(delays);
+    setPrevSlideIndex(currentSlide);
+    setAnimationStage(ANIMATION_STAGES.EXITING);
 
-  const handleNext = () => {
-    if (firstSwiper) {
-      firstSwiper.slideNext();
-    }
+    setTimeout(() => {
+      setCurrentSlide(nextSlide);
+      setAnimationStage(ANIMATION_STAGES.ENTERING);
+    }, 1000);
   };
 
-  const handleSlideTo = (index) => {
-    if (firstSwiper) {
-      firstSwiper.slideTo(index);
+  const handleNext = () => {
+    const nextSlide = currentSlide < content.length ? currentSlide + 1 : 1;
+    startAnimation(nextSlide, currentSlide - 1);
+  };
+
+  useEffect(() => {
+    if (animationStage === ANIMATION_STAGES.ENTERING) {
+      const timer = setTimeout(() => {
+        setAnimationStage(ANIMATION_STAGES.CURRENTLY);
+      }, 2000);
+
+      return () => clearTimeout(timer);
     }
+  }, [animationStage, currentSlide]);
+
+  const handleSlideTo = (index) => {
+    if (animationStage !== ANIMATION_STAGES.CURRENTLY || index + 1 === currentSlide) return;
+    startAnimation(index + 1, currentSlide - 1);
   };
 
   return (
     <section className={styles.filter}>
       <div className={styles.container}>
         <div className={styles.box}>
-          <h3 className={styles.title}>фильтры</h3>
+          <h3 className={styles.title}>
+            фильтры&nbsp;<span>01/04</span>
+          </h3>
           <div className={styles.buttonContainer}>
             {buttonData.map((item, index) => (
               <Button
@@ -72,49 +91,41 @@ export default function Slider() {
         <div className={styles.content}>
           <div className={styles.videoContainer}>
             <div className={styles.slider}>
-              <div className={styles.sliderContainer}>
-                <Swiper
-                  className={styles.sliderFirst}
-                  modules={[Controller]}
-                  spaceBetween={330}
-                  speed={1000}
-                  onSlideChangeTransitionStart={(swiper) => {
-                    const nextSlide = swiper.slides[swiper.activeIndex];
-
-                    nextSlide.style.transition = 'none';
-                    nextSlide.style.width = '0%';
-
-                    setTimeout(() => {
-                      nextSlide.style.transition = 'width 0.7s ease-out';
-                      nextSlide.style.width = '100%';
-                    }, 150);
-                  }}
-                  onSwiper={(swiper) => setFirstSwiper(swiper)}
-                  onSlideChange={(swiper) => setCurrentSlide(swiper.activeIndex + 1)}>
-                  {horizontalContent.map((item) => (
-                    <SwiperSlide key={item.id}>
-                      <img className={styles.image} src={item.content} alt="slide" />
-                    </SwiperSlide>
+              {content.map((sliderItem, arrIndex) => (
+                <div
+                  key={arrIndex}
+                  className={cn(
+                    styles.sliderContainer,
+                    currentSlide === arrIndex + 1 && styles.active,
+                  )}>
+                  {sliderItem.map((img, imgIndex) => (
+                    <div className={styles.imageContainer} key={`${arrIndex} + ${imgIndex}`}>
+                      <img
+                        src={img.content}
+                        alt={`image ${imgIndex}`}
+                        className={cn(
+                          styles.sliderImage,
+                          animationStage === ANIMATION_STAGES.ENTERING &&
+                            arrIndex + 1 === currentSlide &&
+                            styles.nextImage,
+                          animationStage === ANIMATION_STAGES.EXITING &&
+                            arrIndex + 1 === prevSlideIndex &&
+                            styles.prevImage,
+                          animationStage === ANIMATION_STAGES.CURRENTLY &&
+                            arrIndex + 1 === currentSlide &&
+                            styles.currentImage,
+                        )}
+                        style={{ '--delay': `${animationDelays[imgIndex] || 0}ms` }}
+                      />
+                    </div>
                   ))}
-                </Swiper>
+                </div>
+              ))}
 
-                <Swiper
-                  className={styles.sliderSecond}
-                  modules={[Controller]}
-                  spaceBetween={330}
-                  speed={1000}
-                  
-                  onSwiper={(swiper) => setSecondSwiper(swiper)}>
-                  {verticalContent.map((item) => (
-                    <SwiperSlide key={item.id}>
-                      <img className={styles.image} src={item.content} alt="slide" />
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              </div>
               <div className={styles.nextFilter}>
                 <p>
-                  {String(currentSlide).padStart(2, '0')} / {String(buttonData.length).padStart(2, '0')}
+                  {String(currentSlide).padStart(2, '0')} /{' '}
+                  {String(buttonData.length).padStart(2, '0')}
                 </p>
                 <NextButton title="Следующий фильтр" onClick={handleNext}>
                   <img className={styles.arrow} src={arrow} alt="arrow" />

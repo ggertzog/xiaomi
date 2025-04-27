@@ -2,9 +2,10 @@
 @use '@/styles/variables.scss' as *;
 
 .button {
-  @include button;
   position: relative;
   padding-top: 0;
+
+  @include button;
 }
 
 .buttonActive {
@@ -45,4 +46,3 @@
     }
   }
 }
-

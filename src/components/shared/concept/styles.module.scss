@@ -10,6 +10,11 @@
   @include media-1996 {
     width: apxm(1996px);
   }
+
+  @include media-375 {
+    width: 100%;
+    padding-top: apxm(180px);
+  }
 }
 
 .container {
@@ -24,6 +29,17 @@
     width: apxm(1084px);
     gap: apxm(216px);
     top: apxm(-79px);
+  }
+
+  @include media-1280 {
+    width: apxm(1084px);
+    top: apxm(-75px);
+    gap: apxm(216px);
+  }
+
+  @include media-375 {
+    top: 0;
+    flex-direction: column;
   }
 }
 
@@ -42,6 +58,17 @@
     left: apxm(548px);
     top: apxm(180px);
   }
+
+  @include media-1280 {
+    width: apxm(182px);
+    height: apxm(300px);
+    left: apxm(550px);
+    top: apxm(160px);
+  }
+
+  @include media-375 {
+    display: none;
+  }
 }
 
 .video {
@@ -56,6 +83,21 @@
     height: apxm(449px);
     top: apxm(-45px);
   }
+
+  @include media-1280 {
+    width: apxm(214px);
+    height: apxm(421px);
+    top: apxm(-35px);
+    left: apxm(-3px);
+  }
+
+  @include media-375 {
+    position: absolute;
+    width: apxm(156px);
+    height: apxm(319px);
+    left: apxm(190px);
+    top: apxm(-153px);
+  }
 }
 
 .info {
@@ -68,20 +110,21 @@
     width: apxm(432px);
     gap: apxm(21px);
   }
+
+  @include media-1280 {
+    padding-top: apxm(2px);
+    width: apxm(430px);
+    gap: apxm(2px);
+    z-index: 4;
+  }
+
+  @include media-375 {
+    width: apxm(315px);
+    gap: apxm(15px);
+  }
 }
 
 .title {
-  // font-family: $font-family-primary;
-  // color: $text-color-secondary;
-  // font-weight: 400;
-  // font-size: 40px;
-  // line-height: 100%;
-  // text-transform: uppercase;
-
-  // @include media-1996 {
-  //   font-size: apxm(40px);
-  // }
-
   @include title;
 }
 
@@ -93,6 +136,16 @@
   line-height: 20px;
 
   @include media-1996 {
+    font-size: apxm(12px);
+    line-height: apxm(20px);
+  }
+
+  @include media-1280 {
+    font-size: apxm(12px);
+    line-height: apxm(20px);
+  }
+
+  @include media-375 {
     font-size: apxm(12px);
     line-height: apxm(20px);
   }

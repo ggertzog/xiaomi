@@ -11,6 +11,15 @@
     height: apxm(1031px);
     width: apxm(1996px);
   }
+
+  @include media-1280 {
+    // align-items: center;
+    // justify-content: center;
+  }
+
+  @include media-375 {
+    height: apxm(196.5px);
+  }
 }
 
 .background {
@@ -36,9 +45,17 @@
     margin-left: apxm(565px);
     padding-top: apxm(422px);
   }
+
+  @include media-1280 {
+    gap: apxm(15px);
+    margin-top: apxm(285px);
+    margin-left: apxm(212px);
+    padding: 0;
+  }
 }
 
 .logo {
+  margin-top: 2px;
   z-index: 2;
   width: 836px;
   height: 57px;
@@ -46,8 +63,31 @@
   position: relative;
 
   @include media-1996 {
+    margin-top: apxm(2px);
     width: apxm(836px);
     height: apxm(57px);
+  }
+
+  @include media-1280 {
+    width: apxm(838px);
+    height: apxm(60px);
+  }
+
+  @include media-375 {
+    display: none;
+  }
+}
+
+.logoMobile {
+  display: none;
+
+  @include media-375 {
+    display: block;
+    width: apxm(86px);
+    height: apxm(125px);
+    position: absolute;
+    bottom: apxm(-78px);
+    left: apxm(144px);
   }
 }
 
@@ -69,5 +109,15 @@
   @include media-1996 {
     margin-right: apxm(100px);
     font-size: apxm(13px);
+  }
+
+  @include media-1280 {
+    max-width: apxm(230px);
+    margin-right: apxm(250px);
+    font-size: apxm(13px);
+  }
+
+  @include media-375 {
+    display: none;
   }
 }

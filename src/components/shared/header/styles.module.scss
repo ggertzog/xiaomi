@@ -1,31 +1,58 @@
 @use '@/styles/variables.scss' as *;
 
 .header {
-  padding: 53px 65px;
+  padding: 53px 67px;
   width: 1996px;
   display: flex;
   background: transparent;
   align-items: center;
   justify-content: flex-end;
-  gap: 72px;
+  gap: 70px;
   z-index: 2;
   position: absolute;
   top: 0;
 
   @include media-1996 {
-    padding: apxm(53px) apxm(65px);
-    gap: apxm(72px);
+    padding: apxm(56px) apxm(67px);
+    gap: apxm(70px);
     width: apxm(1996px);
+  }
+
+  @include media-1280 {
+    padding: apxm(56px) apxm(50px);
+    gap: apxm(60px);
+  }
+
+  @include media-375 {
+    width: 100%;
+    position: relative;
+    background-color: #1c1c1c;
+    justify-content: space-between;
+    padding: apxm(28px) apxm(23.51px);
   }
 }
 
 .logo {
+  align-self: flex-end;
   height: 64px;
   display: flex;
   flex-direction: column;
   gap: 9px;
 
   @include media-1996 {
+    height: apxm(64px);
+    gap: apxm(9px);
+  }
+
+  @include media-1280 {
+    height: apxm(64px);
+    gap: apxm(9px);
+  }
+
+  @include media-375 {
+    margin-right: apxm(2px);
+    margin-top: apxm(2px);
+    align-self: flex-start;
     height: apxm(64px);
     gap: apxm(9px);
   }
@@ -39,6 +66,16 @@
     width: apxm(47px);
     height: apxm(47px);
   }
+
+  @include media-1280 {
+    width: apxm(47px);
+    height: apxm(47px);
+  }
+
+  @include media-375 {
+    width: apxm(47px);
+    height: apxm(47px);
+  }
 }
 
 .brand {
@@ -49,14 +86,37 @@
     width: apxm(47px);
     height: apxm(8px);
   }
+
+  @include media-1280 {
+    width: apxm(47px);
+    height: apxm(8px);
+  }
+
+  @include media-375 {
+    width: apxm(47px);
+    height: apxm(8px);
+  }
 }
 
 .nav {
+  align-self: flex-start;
+  margin-top: 17px;
   display: flex;
   gap: 20px;
 
   @include media-1996 {
+    margin-top: apxm(17px);
     gap: apxm(20px);
+  }
+
+  @include media-1280 {
+    margin-top: apxm(18px);
+    gap: apxm(20px);
+  }
+
+  @include media-375 {
+    flex-direction: column;
+    gap: apxm(12px);
   }
 }
 
@@ -69,9 +129,16 @@
   text-decoration: underline;
   text-decoration-style: solid;
   color: $text-color-primary;
-  
 
   @include media-1996 {
     font-size: apxm(16px);
+  }
+
+  @include media-1280 {
+    font-size: apxm(16px);
+  }
+
+  @include media-375 {
+    font-size: apxm(14px);
   }
 }

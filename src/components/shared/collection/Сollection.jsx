@@ -1,55 +1,88 @@
 import React, { useState, useEffect } from 'react';
 import styles from './styles.module.scss';
-
 import { cn } from '@/lib/utils.js';
-
 import { Button, NextButton } from '../../ui';
-
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCreative } from 'swiper/modules';
-import 'swiper/scss';
-import 'swiper/css/effect-creative';
-
 import arrow from '@/assets/arrow.png';
-import cap from '@/assets/cap.png';
-import jacket from '@/assets/jacket.png';
-import {
-  mainCollectionImages,
-  secondCollectionImages,
-  collectionBackgroundImages,
-} from './slider-images';
+import { collectionBackgroundImages, collectionImages } from './slider-images';
 
 const buttonContent = ['look01', 'look02', 'look03', 'look04', 'look05'];
 
+const ANIMATION_STAGES = {
+  CURRENTLY: 'currently',
+  EXITING: 'exiting',
+  ENTERING: 'entering',
+};
+
 export default function Сollection() {
-  const [firstSwiper, setFirstSwiper] = useState(null);
   const [currentSlide, setCurrentSlide] = useState(1);
+  const [animationStage, setAnimationStage] = useState(ANIMATION_STAGES.CURRENTLY);
+  const [prevSlideIndex, setPrevSlideIndex] = useState(null);
+  const [animationDelays, setAnimationDelays] = useState({});
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  const startAnimation = (nextSlide, index) => {
+    if (animationStage !== ANIMATION_STAGES.CURRENTLY) return;
+    const delays = {};
+    collectionImages[index].forEach((_, i) => {
+      delays[i] = i * 100;
+    });
+    setAnimationDelays(delays);
+    setPrevSlideIndex(currentSlide);
+    setAnimationStage(ANIMATION_STAGES.EXITING);
+
+    const maxDelay = delays[collectionImages[index].length - 1] || 0;
+    const exitDuration = 1000 + maxDelay;
+
+    setTimeout(() => {
+      setAnimationStage(ANIMATION_STAGES.ENTERING);
+      setCurrentSlide(nextSlide);
+    }, exitDuration);
+  };
 
   const handleNext = () => {
-    if (firstSwiper) {
-      firstSwiper.slideNext();
-    }
+    const nextSlide = currentSlide < collectionImages.length ? currentSlide + 1 : 1;
+    startAnimation(nextSlide, currentSlide - 1);
   };
 
   const handleSlideTo = (index) => {
-    if (firstSwiper) {
-      firstSwiper.slideTo(index);
-    }
+    if (animationStage !== ANIMATION_STAGES.CURRENTLY || index + 1 === currentSlide) return;
+    startAnimation(index + 1, currentSlide - 1);
   };
+
+  useEffect(() => {
+    if (animationStage === ANIMATION_STAGES.ENTERING) {
+      const timer = setTimeout(() => {
+        setAnimationStage(ANIMATION_STAGES.CURRENTLY);
+      }, 1450);
+
+      return () => clearTimeout(timer);
+    }
+  }, [animationStage, currentSlide]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   return (
     <section className={styles.collection}>
       <div className={styles.container}>
-        {collectionBackgroundImages.map((item, index) => (
-          <img
-            className={cn(styles.background, index === currentSlide - 1 && styles.active)}
-            key={item.id}
-            src={item.content}
-            alt={item.alt}
-          />
-        ))}
-        <img className={styles.cap} src={cap} alt="cap" />
-        <img className={styles.jacket} src={jacket} alt="jacket" />
+        {windowWidth > 376 &&
+          collectionBackgroundImages.map((item, index) => (
+            <img
+              className={cn(styles.background, index === currentSlide - 1 && styles.active)}
+              key={item.id}
+              src={item.content}
+              alt={item.alt}
+            />
+          ))}
 
         <div className={styles.content}>
           <div className={styles.box}>
@@ -66,58 +99,31 @@ export default function Сollection() {
             </div>
           </div>
 
-          <Swiper
-            className={styles.mainSwiper}
-            modules={[EffectCreative]}
-            slidesPerView="auto"
-            effect="creative"
-            creativeEffect={{
-              prev: {
-                translate: ['-500%', 0, 0],
-                transition: {
-                  duration: 1000,
-                },
-              },
-              next: {
-                translate: ['500%', 0, 0],
-                transition: {
-                  duration: 1000,
-                },
-              },
-            }}
-            spaceBetween={200}
-            speed={2500}
-            onSwiper={(swiper) => setFirstSwiper(swiper)}
-            onSlideChange={(swiper) => setCurrentSlide(swiper.activeIndex + 1)}>
-            {mainCollectionImages.map((item) => (
-              <SwiperSlide key={item.id} className={styles.mainSlide}>
-                <img
-                  className={styles.mainSliderImage}
-                  src={item.content}
-                  alt={item.alt}
-                  onAnimationEnd={() => {}}
-                />
-              </SwiperSlide>
-            ))}
-          </Swiper>
-
-          <div className={styles.sliderContainer}>
-            {secondCollectionImages.map((item, index) => (
+          <div className={styles.slider}>
+            {collectionImages.map((arr, arrIndex) => (
               <div
-                key={item.id}
+                key={arrIndex}
                 className={cn(
-                  styles.secondSlider,
-                  index === currentSlide - 1 && styles.secondSliderActive,
+                  styles.sliderContainer,
+                  arrIndex + 1 === currentSlide && styles.active,
                 )}>
-                <img
-                  className={cn(
-                    styles.secondSliderImage,
-                    index - 1 === currentSlide && styles.slideOutToLeft,
-                    index && styles.slideInFromRight,
-                  )}
-                  src={item.content}
-                  alt={item.alt}
-                />
+                {arr.map((item, itemIndex) => (
+                  <div className={cn(styles.imageContainer)} key={`${arrIndex}-${itemIndex}`}>
+                    <img
+                      className={cn(
+                        styles.sliderImage,
+                        animationStage === ANIMATION_STAGES.EXITING &&
+                          arrIndex + 1 === prevSlideIndex &&
+                          styles.prevImage,
+                        animationStage === ANIMATION_STAGES.ENTERING &&
+                          arrIndex + 1 === currentSlide &&
+                          styles.nextImage,
+                      )}
+                      style={{ '--delay': `${animationDelays[itemIndex] || 0}ms` }}
+                      src={item.content}
+                    />
+                  </div>
+                ))}
               </div>
             ))}
           </div>

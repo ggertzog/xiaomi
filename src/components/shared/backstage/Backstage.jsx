@@ -1,19 +1,59 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './styles.module.scss';
-
+import { cn } from '@/lib/utils.js';
 import { NextButton } from '@/components/ui';
-
+import { content } from './slider-images/index';
 import background from '@/assets/backstage-background.png';
-import backstage1 from '@/assets/backstage1.png';
-import backstage2 from '@/assets/backstage2.png';
-import backstage3 from '@/assets/backstage3.png';
 import arrow from '@/assets/arrow.png';
 
+const ANIMATION_STAGES = {
+  CURRENTLY: 'currently',
+  EXITING: 'exiting',
+  ENTERING: 'entering',
+};
+
 export default function Backstage() {
+  const [currentSlide, setCurrentSlide] = useState(1);
+  const [animationStage, setAnimationStage] = useState(ANIMATION_STAGES.ENTERING);
+  const [prevSlideIndex, setPrevSlideIndex] = useState(null);
+  const [animationDelays, setAnimationDelays] = useState({});
+
+  const startAnimation = (nextSlide, index) => {
+    const delays = {};
+    content[index].forEach((_, i) => {
+      delays[i] = i * 150;
+    });
+    setAnimationDelays(delays);
+    setPrevSlideIndex(currentSlide);
+    setAnimationStage(ANIMATION_STAGES.EXITING);
+
+    setTimeout(() => {
+      setCurrentSlide(nextSlide);
+      setAnimationStage(ANIMATION_STAGES.ENTERING);
+    }, 1000);
+  };
+
+  const handleNext = () => {
+    const nextSlide = currentSlide < content.length ? currentSlide + 1 : 1;
+    startAnimation(nextSlide, currentSlide - 1);
+  };
+
+  useEffect(() => {
+    if (animationStage === ANIMATION_STAGES.ENTERING) {
+      const timer = setTimeout(() => {
+        setAnimationStage(ANIMATION_STAGES.CURRENTLY);
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [animationStage, currentSlide]);
+
   return (
     <section className={styles.backstage}>
       <div className={styles.container}>
-        <img className={styles.background} src={background} alt="background" />
+        <div className={styles.background}>
+          <img className={styles.backgroundImage} src={background} alt="background" />
+        </div>
 
         <div className={styles.description}>
           <h3 className={styles.title}>backstage</h3>
@@ -25,20 +65,42 @@ export default function Backstage() {
           </p>
         </div>
         <div className={styles.slider}>
-          <img src={backstage1} alt="photo" />
-          <img src={backstage2} alt="photo" />
-          <img src={backstage3} alt="photo" />
+          {content.map((sliderItem, arrIndex) => (
+            <div
+              key={arrIndex}
+              className={cn(
+                styles.sliderContainer,
+                currentSlide === arrIndex + 1 && styles.active,
+              )}>
+              {sliderItem.map((img, imgIndex) => (
+                <div className={styles.imageContainer} key={`${arrIndex} + ${imgIndex}`}>
+                  <img
+                    src={img.content}
+                    alt={`image ${imgIndex}`}
+                    className={cn(
+                      styles.sliderImage,
+                      animationStage === ANIMATION_STAGES.ENTERING &&
+                        arrIndex + 1 === currentSlide &&
+                        styles.nextImage,
+                      animationStage === ANIMATION_STAGES.EXITING &&
+                        arrIndex + 1 === prevSlideIndex &&
+                        styles.prevImage,
+                      animationStage === ANIMATION_STAGES.CURRENTLY &&
+                        arrIndex + 1 === currentSlide &&
+                        styles.currentImage,
+                    )}
+                    style={{ '--delay': `${animationDelays[imgIndex] || 0}ms` }}
+                  />
+                </div>
+              ))}
+            </div>
+          ))}
         </div>
         <div className={styles.buttonContainer}>
-          <NextButton title="далее">
+          <NextButton title="далее" onClick={handleNext}>
             <img src={arrow} className={styles.arrow} alt="arrow" />
           </NextButton>
         </div>
-
-        {/* <button className={styles.buttonNext}>
-          далее
-          <img src={arrow} alt="arrow" />
-        </button> */}
       </div>
     </section>
   );

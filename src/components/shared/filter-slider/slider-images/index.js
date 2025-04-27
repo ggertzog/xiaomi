@@ -21,4 +21,11 @@ const verticalContent = [
   { id: 4, content: blackIce2 },
 ];
 
-export {horizontalContent, verticalContent};
+const content = [
+  [{content: cyberpunk1}, {content: cyberpunk2}],
+  [{content: colorFocus1}, {content: colorFocus2}],
+  [{content: goldVibes1}, {content: goldVibes2}],
+  [{content: blackIce1}, {content: blackIce2}],
+]
+
+export {horizontalContent, verticalContent, content};

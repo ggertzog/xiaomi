@@ -9,6 +9,11 @@
   @include media-1996 {
     width: apxm(1996px);
   }
+
+  @include media-375 {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .figure {
@@ -28,6 +33,23 @@
     top: apxm(-87.95px);
     gap: apxm(115px);
   }
+
+  @include media-1280 {
+    width: apxm(1084px);
+    height: apxm(687px);
+    top: apxm(-83px);
+    left: apxm(4px);
+    gap: apxm(120px);
+  }
+
+  @include media-375 {
+    padding-top: apxm(382px);
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    height: auto;
+    gap: apxm(45px);
+  }
 }
 
 .background {
@@ -43,6 +65,32 @@
     height: apxm(687px);
     left: apxm(-10px);
   }
+
+  @include media-1280 {
+    width: apxm(1084px);
+    height: apxm(687px);
+  }
+
+  @include media-375 {
+    display: none;
+  }
+}
+
+.backgroundMobile {
+  display: none;
+  position: absolute;
+  object-fit: cover;
+  object-position: center;
+
+  @include media-375 {
+    display: flex;
+    width: apxm(339px);
+    height: apxm(536px);
+
+    inset: 0;
+    top: apxm(732px);
+    left: apxm(-8px);
+  }
 }
 
 .container {
@@ -57,6 +105,26 @@
     width: apxm(218px);
     gap: apxm(30px);
   }
+
+  @include media-1280 {
+    margin-top: apxm(15px);
+    left: apxm(-11px);
+    width: apxm(210px);
+    gap: apxm(23px);
+  }
+
+  @include media-375 {
+    margin: 0 auto;
+    width: apxm(262px);
+    position: static;
+    left: 0;
+    align-items: center;
+    gap: apxm(40px);
+
+    & .paragraph {
+      display: none;
+    }
+  }
 }
 
 .container:first-of-type {
@@ -65,8 +133,18 @@
   @include media-1996 {
     margin-top: apxm(35px);
   }
-}
 
+  @include media-1280 {
+    left: 0;
+    margin-top: apxm(53px);
+  }
+
+  @include media-375 {
+    margin-top: 0;
+    width: apxm(316px);
+    // margin-top: apxm(50px);
+  }
+}
 
 .text {
   font-family: $font-family-secondary;
@@ -80,6 +158,16 @@
     font-size: apxm(12px);
     line-height: apxm(20px);
   }
+
+  @include media-1280 {
+    font-size: apxm(12px);
+    line-height: apxm(20px);
+  }
+
+  @include media-375 {
+    font-size: apxm(12px);
+    line-height: apxm(20px);
+  }
 }
 
 .logo {
@@ -90,11 +178,27 @@
     width: apxm(148px);
     height: apxm(97px);
   }
+
+  @include media-1280 {
+    width: apxm(148px);
+    height: apxm(97px);
+  }
+
+  @include media-375 {
+    width: apxm(112px);
+    height: apxm(73px);
+    margin-right: apxm(15px);
+  }
 }
 
 .phoneBlock {
   display: flex;
   flex-direction: column;
+
+  @include media-375 {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .phone {
@@ -110,6 +214,20 @@
     height: apxm(656.09px);
     top: apxm(-161.05px);
     left: apxm(326px);
+  }
+
+  @include media-1280 {
+    width: apxm(419.49px);
+    height: apxm(656px);
+    left: apxm(323px);
+    top: apxm(-161px);
+  }
+
+  @include media-375 {
+    width: apxm(177px);
+    height: apxm(276px);
+    left: apxm(180px);
+    top: apxm(39px);
   }
 }
 
@@ -128,6 +246,21 @@
     margin-top: apxm(356.05px);
     font-size: apxm(14px);
   }
+
+  @include media-1280 {
+    margin-top: apxm(375px);
+    font-size: apxm(14px);
+  }
+
+  @include media-375 {
+    margin-top: 0;
+    font-size: apxm(11px);
+    width: apxm(64px);
+    text-align: right;
+    position: absolute;
+    top: apxm(190px);
+    left: apxm(130px);
+  }
 }
 
 .model {
@@ -143,5 +276,19 @@
     height: apxm(128.99px);
     left: apxm(106px);
     top: apxm(-87.31px);
+  }
+
+  @include media-1280 {
+    width: apxm(416.69px);
+    height: apxm(129px);
+    top: apxm(-87px);
+    left: apxm(110px);
+  }
+
+  @include media-375 {
+    width: apxm(313px);
+    height: apxm(97px);
+    top: apxm(245px);
+    left: apxm(4px);
   }
 }

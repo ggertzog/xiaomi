@@ -3,7 +3,7 @@
 
 .collection {
   padding-top: 197px;
-  padding-bottom: 217px;
+  padding-bottom: 406px;
   width: 1996px;
   display: flex;
   justify-content: center;
@@ -11,7 +11,17 @@
   @include media-1996 {
     width: apxm(1996px);
     padding-top: apxm(197px);
-    padding-bottom: apxm(217px);
+    padding-bottom: apxm(406px);
+  }
+
+  @include media-1280 {
+    padding-top: apxm(196px);
+    padding-bottom: apxm(638px);
+  }
+
+  @include media-375 {
+    width: 100%;
+    padding-top: apxm(17px);
   }
 }
 
@@ -19,9 +29,18 @@
   position: relative;
   width: 1084px;
   display: flex;
+  z-index: 6;
 
   @include media-1996 {
     width: apxm(1084px);
+  }
+
+  @include media-1280 {
+    width: apxm(1084px);
+  }
+
+  @include media-375 {
+    width: 100%;
   }
 }
 
@@ -41,10 +60,16 @@
     top: apxm(29px);
     left: apxm(140px);
   }
-}
 
-.active {
-  display: flex;
+  @include media-1280 {
+    width: apxm(853px);
+    height: apxm(490px);
+    top: apxm(74px);
+    left: apxm(16px);
+  }
+
+  @include media-375 {
+  }
 }
 
 .content {
@@ -56,6 +81,9 @@
   @include media-1996 {
     gap: apxm(33px);
   }
+
+  @include media-375 {
+  }
 }
 
 .box {
@@ -66,6 +94,14 @@
   @include media-1996 {
     gap: apxm(8px);
   }
+
+  @include media-1280 {
+    gap: apxm(8px);
+  }
+
+  @include media-375 {
+    gap: apxm(23px);
+  }
 }
 
 .title {
@@ -75,6 +111,15 @@
 
   @include media-1996 {
     margin-left: apxm(111px);
+  }
+
+  @include media-1280 {
+    margin-left: apxm(119px);
+  }
+
+  @include media-375 {
+    margin: 0;
+    margin-left: apxm(27px);
   }
 }
 
@@ -88,172 +133,25 @@
     margin-left: apxm(112px);
     gap: apxm(15px);
   }
-}
 
-.mainSwiper {
-  position: relative;
-  left: -102px;
-  top: -1px;
-  max-width: 533px;
-
-  @include media-1996 {
-    left: apxm(-102px);
-    top: apxm(-1px);
-    max-width: apxm(533px);
-  }
-}
-
-.mainSlide {
-  // flex-shrink: 0;
-  transition: transform 0.3s ease;
-  width: 357px !important;
-  height: 477px !important;
-
-  @include media-1996 {
-    width: apxm(357px) !important;
-    height: apxm(477px) !important;
+  @include media-1280 {
+    margin-left: apxm(120px);
+    gap: apxm(15px);
   }
 
-  &:nth-of-type(4) {
-    width: 476px !important;
-    height: 361px !important;
-
-    @include media-1996 {
-      width: apxm(476px) !important;
-      height: apxm(361px) !important;
-    }
-  }
-
-  &:nth-of-type(5) {
-    width: 533px !important;
-    height: 401px !important;
-
-    @include media-1996 {
-      width: apxm(533px) !important;
-      height: apxm(401px) !important;
-    }
-  }
-}
-
-.mainSliderImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.sliderContainer {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
-.secondSlider {
-  position: absolute;
-  right: 14px;
-  top: 100px;
-  display: none;
-  width: 383px;
-  height: 288px;
-  overflow: hidden;
-
-  @include media-1996 {
-    width: apxm(383px);
-    height: apxm(288px);
-    right: apxm(14px);
-    top: apxm(100px);
-  }
-
-  &:nth-child(3) {
-    width: 262px;
-    height: 349px;
-    left: 276px;
-    top: 175px;
-
-    @include media-1996 {
-      width: apxm(262px);
-      height: apxm(349px);
-      left: apxm(276px);
-      top: apxm(175px);
-    }
-  }
-
-  &:nth-child(4) {
-    width: 383px;
-    height: 288px;
-    left: 250px;
-    top: 356px;
-
-    @include media-1996 {
-      width: apxm(383px);
-      height: apxm(288px);
-      left: apxm(250px);
-      top: apxm(356px);
-    }
-  }
-
-  &:nth-child(5) {
-    width: 232px;
-    height: 310px;
-    left: 384px;
-    top: 305px;
-    z-index: 2;
-
-    @include media-1996 {
-      width: apxm(232px);
-      height: apxm(310px);
-      left: apxm(384px);
-      top: apxm(305px);
-    }
-  }
-}
-
-.secondSliderActive {
-  display: flex;
-}
-
-.secondSliderImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-.secondSliderImage {
-  position: absolute;
-  transition: transform 0.7s ease-in-out;
-}
-
-.slideInFromRight {
-  transform: translateX(0);
-  animation: slideInFromRight 1s ease-in-out;
-}
-
-.slideOutToLeft {
-  animation: slideOutToLeft 0.7s ease-in-out;
-  transform: translateX(-100%);
-}
-
-@keyframes slideInFromRight {
-  0% {
-    transform: translateX(500%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-@keyframes slideOutToLeft {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-500%);
+  @include media-375 {
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0;
+    margin-left: apxm(30px);
+    gap: apxm(17px);
   }
 }
 
 .nextLook {
-  margin-left: 108px;
+  position: absolute;
+  bottom: -5px;
+  left: 108px;
   align-self: flex-start;
   display: flex;
   flex-direction: column;
@@ -261,10 +159,25 @@
   justify-content: center;
   gap: 52px;
   z-index: 2;
+  text-decoration: underline;
+  color: #fff;
 
   @include media-1996 {
-    margin-left: apxm(108px);
     gap: apxm(52px);
+    bottom: apxm(-5px);
+    left: apxm(108px);
+  }
+
+  @include media-1280 {
+    gap: apxm(52px);
+    bottom: apxm(-237px);
+    left: apxm(114px);
+  }
+
+  @include media-375 {
+    bottom: apxm(-344px);
+    left: apxm(27px);
+    gap: apxm(53px);
   }
 
   p {
@@ -287,11 +200,22 @@
     width: apxm(214px);
     height: apxm(29px);
   }
+
+  @include media-1280 {
+    width: apxm(214px);
+    height: apxm(29px);
+  }
+
+  @include media-375 {
+    width: apxm(214px);
+    height: apxm(29px);
+  }
 }
 
 .description {
-  margin-left: 7px;
-  margin-top: 448px;
+  position: absolute;
+  right: 110px;
+  top: 448px;
   width: 324px;
   display: flex;
   flex-direction: column;
@@ -299,10 +223,24 @@
   z-index: 2;
 
   @include media-1996 {
-    margin-left: apxm(7px);
-    margin-top: apxm(448px);
+    right: apxm(110px);
+    top: apxm(448px);
     gap: apxm(30px);
     width: apxm(324px);
+  }
+
+  @include media-1280 {
+    right: apxm(115px);
+    top: apxm(448px);
+    gap: apxm(45px);
+    width: apxm(320px);
+  }
+
+  @include media-375 {
+    width: apxm(315px);
+    left: apxm(30px);
+    top: apxm(700px);
+    gap: apxm(51px);
   }
 }
 
@@ -315,6 +253,16 @@
   letter-spacing: 0%;
 
   @include media-1996 {
+    font-size: apxm(12px);
+    line-height: apxm(20px);
+  }
+
+  @include media-1280 {
+    font-size: apxm(12px);
+    line-height: apxm(20px);
+  }
+
+  @include media-375 {
     font-size: apxm(12px);
     line-height: apxm(20px);
   }
@@ -333,36 +281,662 @@
     font-size: apxm(17px);
     line-height: apxm(22px);
   }
-}
 
-.cap {
-  position: absolute;
-  width: 175px;
-  height: 247px;
-  top: 458px;
-  left: 434px;
-  z-index: 3;
+  @include media-1280 {
+    font-size: apxm(17px);
+    line-height: apxm(22px);
+  }
 
-  @include media-1996 {
-    width: apxm(175px);
-    height: apxm(247px);
-    top: apxm(458px);
-    left: apxm(434px);
+  @include media-375 {
+    font-size: apxm(17px);
+    line-height: apxm(22px);
   }
 }
 
-.jacket {
-  position: absolute;
-  width: 158px;
-  height: 223px;
-  right: 110px;
-  top: 118px;
-  z-index: 2;
+.slider {
+  margin: 0 auto;
+  position: relative;
+  width: 1280px;
+  height: 610px;
+  top: -3px;
+  left: -102px;
 
   @include media-1996 {
-    width: apxm(158px);
-    height: apxm(223px);
-    right: apxm(110px);
-    top: apxm(118px);
+    width: apxm(1280px);
+    height: apxm(610px);
+    top: apxm(-3px);
+    left: apxm(-102px);
   }
+
+  @include media-1280 {
+    width: apxm(1280px);
+    left: apxm(-98px);
+  }
+
+  @include media-375 {
+    left: 0;
+  }
+}
+
+.sliderContainer {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+
+  &:nth-child(1) .imageContainer:nth-child(1),
+  &:nth-child(2) .imageContainer:nth-child(1),
+  &:nth-child(3) .imageContainer:nth-child(1) {
+    width: 357px;
+    height: 477px;
+    top: 2px;
+
+    @include media-1996 {
+      width: apxm(357px);
+      height: apxm(477px);
+      top: apxm(2px);
+    }
+
+    @include media-1280 {
+      width: apxm(357px);
+      height: apxm(477px);
+      top: apxm(12px);
+    }
+
+    @include media-375 {
+      display: none;
+    }
+  }
+
+  &:nth-child(1) .imageContainer:nth-child(2),
+  &:nth-child(2) .imageContainer:nth-child(2) {
+    width: 383px;
+    height: 288px;
+    top: 0px;
+    right: 106px;
+
+    @include media-1996 {
+      width: apxm(383px);
+      height: apxm(288px);
+      right: apxm(106px);
+    }
+
+    @include media-1280 {
+      width: apxm(383px);
+      height: apxm(288px);
+      right: apxm(107px);
+      top: apxm(8px);
+    }
+
+    @include media-375 {
+      width: apxm(375px);
+      height: apxm(288px);
+      right: 0;
+      left: 0;
+      top: apxm(33px);
+    }
+  }
+
+  &:nth-child(1) .imageContainer:nth-child(3) {
+    width: 175px;
+    height: 247px;
+    right: 444px;
+    top: 70px;
+
+    @include media-1996 {
+      width: apxm(175px);
+      height: apxm(247px);
+      right: apxm(444px);
+      top: apxm(70px);
+    }
+
+    @include media-1280 {
+      width: apxm(175px);
+      height: apxm(247px);
+      right: apxm(444px);
+      top: apxm(80px);
+    }
+
+    @include media-375 {
+      width: apxm(105px);
+      height: apxm(148px);
+      right: 0;
+      top: apxm(-115px);
+    }
+  }
+
+  &:nth-child(1) .imageContainer:nth-child(4) {
+    width: 133px;
+    height: 188px;
+    left: 387px;
+    bottom: 88px;
+
+    @include media-1996 {
+      width: apxm(133px);
+      height: apxm(188px);
+      left: apxm(387px);
+      bottom: apxm(88px);
+    }
+
+    @include media-1280 {
+      width: apxm(133px);
+      height: apxm(188px);
+      left: apxm(386px);
+      bottom: apxm(-140.5px);
+    }
+
+    @include media-375 {
+      width: apxm(105px);
+      height: apxm(148px);
+      top: apxm(-115px);
+      left: apxm(166px);
+    }
+  }
+
+  &:nth-child(2) .imageContainer:nth-child(3) {
+    width: 175px;
+    height: 247px;
+    left: 640px;
+    top: 70px;
+
+    @include media-1996 {
+      width: apxm(175px);
+      height: apxm(247px);
+      left: apxm(640px);
+      top: apxm(70px);
+    }
+
+    @include media-1280 {
+      width: apxm(175px);
+      height: apxm(247px);
+      left: apxm(640px);
+      top: apxm(79px);
+    }
+
+    @include media-375 {
+      left: auto;
+      width: apxm(105px);
+      height: apxm(148px);
+      right: 0;
+      top: apxm(-115px);
+    }
+  }
+
+  &:nth-child(2) .imageContainer:nth-child(4) {
+    width: 133px;
+    height: 188px;
+    left: 507px;
+    top: 255px;
+
+    @include media-1996 {
+      width: apxm(133px);
+      height: apxm(188px);
+      left: apxm(507px);
+      top: apxm(255px);
+    }
+
+    @include media-1280 {
+      width: apxm(133px);
+      height: apxm(188px);
+      left: apxm(506.7px);
+      top: apxm(264px);
+    }
+
+    @include media-375 {
+      width: apxm(105px);
+      height: apxm(148px);
+      top: apxm(-115px);
+      left: apxm(166px);
+    }
+  }
+
+  &:nth-child(3) .imageContainer:nth-child(2) {
+    width: 262px;
+    height: 349px;
+    left: 380px;
+    top: 73px;
+
+    @include media-1996 {
+      width: apxm(262px);
+      height: apxm(349px);
+      left: apxm(380px);
+      top: apxm(73px);
+    }
+
+    @include media-1280 {
+      width: apxm(262px);
+      height: apxm(349px);
+      left: apxm(380px);
+      top: apxm(86px);
+    }
+
+    @include media-375 {
+      width: apxm(219px);
+      height: apxm(292px);
+      left: 0;
+      top: apxm(32px);
+    }
+  }
+
+  &:nth-child(3) .imageContainer:nth-child(3) {
+    width: 175px;
+    height: 247px;
+    top: 355px;
+    left: 535px;
+
+    @include media-1996 {
+      width: apxm(175px);
+      height: apxm(247px);
+      top: apxm(355px);
+      left: apxm(535px);
+    }
+
+    @include media-1280 {
+      width: apxm(175px);
+      height: apxm(247px);
+      top: apxm(370px);
+      left: apxm(534px);
+    }
+
+    @include media-375 {
+      width: apxm(105px);
+      height: apxm(148px);
+      top: apxm(-115px);
+      left: apxm(166px);
+    }
+  }
+
+  &:nth-child(3) .imageContainer:nth-child(4) {
+    width: 158px;
+    height: 223px;
+    right: 204px;
+    top: 16px;
+
+    @include media-1996 {
+      width: apxm(158px);
+      height: apxm(223px);
+      right: apxm(204px);
+      top: apxm(16px);
+    }
+
+    @include media-1280 {
+      width: apxm(158px);
+      height: apxm(223px);
+      right: apxm(216px);
+      top: apxm(28px);
+    }
+
+    @include media-375 {
+      width: apxm(105px);
+      height: apxm(148px);
+      right: 0;
+      top: apxm(-115px);
+    }
+  }
+
+  &:nth-child(4) .imageContainer:nth-child(1) {
+    width: 476px;
+    height: 361px;
+    top: 2px;
+    z-index: 2;
+
+    @include media-1996 {
+      width: apxm(476px);
+      height: apxm(361px);
+      top: apxm(2px);
+    }
+
+    @include media-1280 {
+      width: apxm(476px);
+      height: apxm(361px);
+      top: apxm(12px);
+    }
+
+    @include media-375 {
+      width: apxm(375px);
+      height: apxm(288px);
+      right: 0;
+      left: 0;
+      top: apxm(33px);
+    }
+  }
+
+  &:nth-child(4) .imageContainer:nth-child(2) {
+    width: 383px;
+    height: 288px;
+    left: 353px;
+    top: 255px;
+
+    @include media-1996 {
+      width: apxm(383px);
+      height: apxm(288px);
+      left: apxm(353px);
+      top: apxm(255px);
+    }
+
+    @include media-1280 {
+      width: apxm(383px);
+      height: apxm(288px);
+      left: apxm(353px);
+      top: apxm(265px);
+    }
+
+    @include media-375 {
+      display: none;
+    }
+  }
+
+  &:nth-child(4) .imageContainer:nth-child(3) {
+    width: 133px;
+    height: 188px;
+    left: 669px;
+    top: 113px;
+
+    @include media-1996 {
+      width: apxm(133px);
+      height: apxm(188px);
+      left: apxm(669px);
+      top: apxm(113px);
+    }
+
+    @include media-1280 {
+      width: apxm(133px);
+      height: apxm(188px);
+      left: apxm(668.5px);
+      top: apxm(125px);
+    }
+
+    @include media-375 {
+      width: apxm(105px);
+      height: apxm(148px);
+      top: apxm(-115px);
+      left: apxm(166px);
+    }
+  }
+
+  &:nth-child(4) .imageContainer:nth-child(4) {
+    width: 175px;
+    height: 247px;
+    right: 284px;
+    top: -40px;
+
+    @include media-1996 {
+      width: apxm(175px);
+      height: apxm(247px);
+      right: apxm(284px);
+      top: apxm(-40px);
+    }
+
+    @include media-1280 {
+      width: apxm(175px);
+      height: apxm(247px);
+      right: apxm(284px);
+      top: apxm(-29px);
+    }
+
+    @include media-375 {
+      width: apxm(105px);
+      height: apxm(148px);
+      right: 0;
+      top: apxm(33px);
+      z-index: 3;
+    }
+  }
+
+  &:nth-child(4) .imageContainer:nth-child(5) {
+    width: 109px;
+    height: 154px;
+    right: 157px;
+    top: 163px;
+
+    @include media-1996 {
+      width: apxm(109px);
+      height: apxm(154px);
+      right: apxm(157px);
+      top: apxm(163px);
+    }
+
+    @include media-1280 {
+      width: apxm(109px);
+      height: apxm(154px);
+      right: apxm(158px);
+      top: apxm(174px);
+    }
+
+    @include media-375 {
+      width: apxm(105px);
+      height: apxm(148px);
+      right: 0;
+      top: apxm(-115px);
+    }
+  }
+
+  &:nth-child(5) .imageContainer:nth-child(1) {
+    width: 533px;
+    height: 401px;
+    top: 0;
+    left: 0;
+
+    @include media-1996 {
+      width: apxm(533px);
+      height: apxm(401px);
+    }
+
+    @include media-1280 {
+      width: apxm(533px);
+      height: apxm(401px);
+      top: apxm(12px);
+    }
+
+    @include media-375 {
+      width: apxm(375px);
+      height: apxm(290px);
+      right: 0;
+      left: 0;
+      top: apxm(33px);
+    }
+  }
+
+  &:nth-child(5) .imageContainer:nth-child(2) {
+    width: 232px;
+    height: 310px;
+    left: 486px;
+    top: 205px;
+
+    @include media-1996 {
+      width: apxm(232px);
+      height: apxm(310px);
+      left: apxm(486px);
+      top: apxm(205px);
+    }
+
+    @include media-1280 {
+      width: apxm(232px);
+      height: apxm(310px);
+      left: apxm(485.5px);
+      top: apxm(216px);
+    }
+
+    @include media-375 {
+      display: none;
+    }
+  }
+
+  &:nth-child(5) .imageContainer:nth-child(3) {
+    width: 141px;
+    height: 200px;
+    bottom: 91px;
+    left: 327px;
+
+    @include media-1996 {
+      width: apxm(141px);
+      height: apxm(200px);
+      bottom: apxm(91px);
+      left: apxm(327px);
+    }
+
+    @include media-1280 {
+      width: apxm(141px);
+      height: apxm(200px);
+      bottom: apxm(-138px);
+      left: apxm(325.5px);
+    }
+
+    @include media-375 {
+      width: apxm(105px);
+      height: apxm(148px);
+      top: apxm(-115px);
+      left: apxm(166px);
+    }
+  }
+
+  &:nth-child(5) .imageContainer:nth-child(4) {
+    width: 109px;
+    height: 154px;
+    left: 663px;
+    top: -50px;
+
+    @include media-1996 {
+      width: apxm(109px);
+      height: apxm(154px);
+      left: apxm(663px);
+      top: apxm(-50px);
+    }
+
+    @include media-1280 {
+      width: apxm(109px);
+      height: apxm(154px);
+      left: apxm(663px);
+      top: apxm(-39px);
+    }
+
+    @include media-375 {
+      left: auto;
+      width: apxm(105px);
+      height: apxm(145px);
+      right: 0;
+      top: apxm(33px);
+      z-index: 3;
+    }
+  }
+
+  &:nth-child(5) .imageContainer:nth-child(5) {
+    width: 176px;
+    height: 250px;
+    right: 355px;
+    top: 76px;
+
+    @include media-1996 {
+      width: apxm(176px);
+      height: apxm(250px);
+      right: apxm(355px);
+      top: apxm(76px);
+    }
+
+    @include media-1280 {
+      width: apxm(176px);
+      height: apxm(250px);
+      right: apxm(355px);
+      top: apxm(86px);
+    }
+
+    @include media-375 {
+      width: apxm(105px);
+      height: apxm(145px);
+      right: 0;
+      top: apxm(178px);
+    }
+  }
+
+  &:nth-child(5) .imageContainer:nth-child(6) {
+    width: 158px;
+    height: 223px;
+    right: 107px;
+    top: 2px;
+
+    @include media-1996 {
+      width: apxm(158px);
+      height: apxm(223px);
+      right: apxm(107px);
+      top: apxm(2px);
+    }
+
+    @include media-1280 {
+      width: apxm(158px);
+      height: apxm(223px);
+      right: apxm(107px);
+      top: apxm(13px);
+    }
+
+    @include media-375 {
+      width: apxm(105px);
+      height: apxm(148px);
+      right: 0;
+      top: apxm(-115px);
+    }
+  }
+}
+
+.imageContainer {
+  position: absolute;
+  overflow: hidden;
+}
+
+.sliderImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+
+  // here
+  transform: translateX(120%);
+  transition: transform 0.8s ease-in-out;
+}
+
+.prevImage {
+  animation: fromCenterToLeft 0.8s linear forwards;
+  animation-delay: var(--delay);
+}
+
+.nextImage {
+  animation: fromRightToCenter 0.8s linear forwards;
+  animation-delay: var(--delay);
+}
+
+@keyframes fromCenterToLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-120%);
+  }
+}
+
+@keyframes fromRightToCenter {
+  from {
+    transform: translateX(120%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.active {
+  display: flex;
+  visibility: visible;
+  opacity: 1;
+
+  & .sliderImage {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.invisible {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.nextSlide {
+  transform: translateX(100%);
 }

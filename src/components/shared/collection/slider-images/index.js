@@ -16,21 +16,15 @@ import collectionBackground3 from '@/assets/collection-slider/03.png';
 import collectionBackground4 from '@/assets/collection-slider/04.png';
 import collectionBackground5 from '@/assets/collection-slider/05.png';
 
-const mainCollectionImages = [
-  { id: 1, content: mainCollection1, alt: 'photo' },
-  { id: 2, content: mainCollection2, alt: 'photo' },
-  { id: 3, content: mainCollection3, alt: 'photo' },
-  { id: 4, content: mainCollection4, alt: 'photo' },
-  { id: 5, content: mainCollection5, alt: 'photo' },
-];
-
-const secondCollectionImages = [
-  { id: 1, content: secondCollection1, alt: 'photo' },
-  { id: 2, content: secondCollection2, alt: 'photo' },
-  { id: 3, content: secondCollection3, alt: 'photo' },
-  { id: 4, content: secondCollection4, alt: 'photo' },
-  { id: 5, content: secondCollection5, alt: 'photo' },
-];
+import collectionShirt from '@/assets/collection-slider/collection-shirt.png';
+import collectionPants from '@/assets/collection-slider/collection-pants.png';
+import collectionHoodie from '@/assets/collection-slider/collection-hoodie.png';
+import collectionBag from '@/assets/collection-slider/collection-bag.png';
+import collectionCap from '@/assets/collection-slider/collection-cap.png';
+import collectionJacket from '@/assets/collection-slider/collection-jacket.png';
+import collectionTShirt from '@/assets/collection-slider/collection-T-shirt.png';
+import collectionPants2 from '@/assets/collection-slider/collection-pants2.png';
+import collectionTShirt2 from '@/assets/collection-slider/collection-white-T-shirt.png';
 
 const collectionBackgroundImages = [
   { id: 1, content: collectionBackground1, alt: '01' },
@@ -40,4 +34,40 @@ const collectionBackgroundImages = [
   { id: 5, content: collectionBackground5, alt: '05' },
 ];
 
-export { mainCollectionImages, secondCollectionImages, collectionBackgroundImages };
+const collectionImages = [
+  [
+    { content: mainCollection1 },
+    { content: secondCollection1 },
+    { content: collectionShirt },
+    { content: collectionPants },
+  ],
+  [
+    { content: mainCollection2 },
+    { content: secondCollection2 },
+    { content: collectionHoodie },
+    { content: collectionBag },
+  ],
+  [
+    { content: mainCollection3 },
+    { content: secondCollection3 },
+    { content: collectionCap },
+    { content: collectionJacket },
+  ],
+  [
+    { content: mainCollection4 },
+    { content: secondCollection4 },
+    { content: collectionPants },
+    { content: collectionTShirt },
+    { content: collectionPants2 },
+  ],
+  [
+    { content: mainCollection5 },
+    { content: secondCollection5 },
+    { content: collectionCap },
+    { content: collectionPants2 },
+    { content: collectionTShirt2 },
+    { content: collectionJacket },
+  ],
+];
+
+export { collectionBackgroundImages, collectionImages };

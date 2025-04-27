@@ -10,18 +10,26 @@
   @include media-1996 {
     font-size: apxm(40px);
   }
+
+  @include media-1280 {
+    font-size: apxm(40px);
+  }
+
+  @include media-375 {
+    font-size: 30px;
+  }
 }
 
 @mixin hover-effect {
   &:hover {
     opacity: 50%;
   }
-  
+
   &:focus-visible {
     outline: 2px solid $text-color-primary;
     outline-offset: 2px;
   }
-  
+
   &:active {
     transform: scale(0.98);
   }
@@ -47,11 +55,19 @@
 @mixin button {
   @include button-base;
   font-size: 18px;
-  
+
   @include media-1996 {
     font-size: apxm(18px);
   }
-  
+
+  @include media-1280 {
+    font-size: apxm(18px);
+  }
+
+  @include media-375 {
+    font-size: apxm(18px);
+  }
+
   @include hover-effect;
 }
 
@@ -62,12 +78,22 @@
   flex-direction: column;
   gap: 3px;
   text-align: left;
-  
+
   @include media-1996 {
     font-size: apxm(16px);
     gap: apxm(3px);
   }
-  
+
+  @include media-1280 {
+    font-size: apxm(16px);
+    gap: apxm(3px);
+  }
+
+  @include media-375 {
+    font-size: apxm(16px);
+    gap: apxm(12px);
+  }
+
   @include hover-effect;
 }
 

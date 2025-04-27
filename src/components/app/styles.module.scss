@@ -1,0 +1,11 @@
+@use '@/styles/variables.scss' as *;
+
+.contest {
+    display: none;
+
+    @include media-375 {
+        display: flex;
+        width: 100%;
+        height: apxm(900px);
+    }
+}

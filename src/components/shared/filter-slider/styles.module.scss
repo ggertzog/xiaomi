@@ -10,19 +10,37 @@
   @include media-1996 {
     width: apxm(1996px);
   }
+
+  @include media-1280 {
+    margin-top: apxm(50px);
+  }
+
+  @include media-375 {
+  }
 }
 
 .container {
   position: relative;
-
   width: 1084px;
   display: flex;
   flex-direction: column;
   gap: 48.05px;
+  box-sizing: border-box;
 
   @include media-1996 {
     width: apxm(1084px);
     gap: apxm(48.05px);
+  }
+
+  @include media-1280 {
+    width: apxm(1084px);
+    gap: apxm(31px);
+  }
+
+  @include media-375 {
+    width: 100%;
+    padding-top: apxm(80px);
+    padding-left: apxm(27px);
   }
 }
 
@@ -31,10 +49,19 @@
   display: flex;
   flex-direction: column;
   gap: 11px;
-  z-index: 2;
+  z-index: 3;
 
   @include media-1996 {
     gap: apxm(11px);
+  }
+
+  @include media-1280 {
+    gap: apxm(10px);
+  }
+
+  @include media-375 {
+    margin-left: apxm(2px);
+    gap: apxm(23px);
   }
 }
 
@@ -45,6 +72,23 @@
 
   @include media-1996 {
     margin-left: apxm(540px);
+  }
+
+  @include media-1280 {
+    margin-left: apxm(542px);
+  }
+
+  @include media-375 {
+    margin: 0;
+    display: flex;
+  }
+
+  & span {
+    display: none;
+
+    @include media-375 {
+      display: block;
+    }
   }
 }
 
@@ -58,18 +102,27 @@
     gap: apxm(15px);
     margin-left: apxm(242px);
   }
+
+  @include media-1280 {
+    margin-left: apxm(244px);
+    gap: apxm(16px);
+  }
+
+  @include media-375 {
+    margin: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: apxm(17px);
+  }
 }
 
 .content {
   display: flex;
-  gap: 248px;
-
-  @include media-1996 {
-    gap: apxm(248px);
-  }
 }
 
 .videoContainer {
+  width: 100%;
+  height: 100%;
   position: relative;
   padding-left: 122px;
   display: flex;
@@ -81,15 +134,14 @@
     padding-left: apxm(112px);
     gap: apxm(24px);
   }
-}
 
-.video {
-  width: 443px;
-  height: 301px;
+  @include media-1280 {
+    padding-left: apxm(120px);
+    gap: apxm(132px);
+  }
 
-  @include media-1996 {
-    width: apxm(443px);
-    height: apxm(301px);
+  @include media-375 {
+    padding: 0;
   }
 }
 
@@ -109,6 +161,17 @@
     width: apxm(260px);
     margin-left: apxm(5px);
   }
+
+  @include media-1280 {
+    margin: 0;
+    font-size: apxm(14px);
+    line-height: apxm(18px);
+    width: apxm(230px);
+  }
+
+  @include media-375 {
+    display: none;
+  }
 }
 
 .phone {
@@ -126,6 +189,17 @@
     bottom: apxm(-202px);
     left: apxm(635px);
   }
+
+  @include media-1280 {
+    width: apxm(120px);
+    gap: apxm(18px);
+    bottom: apxm(-209px);
+    left: apxm(649px);
+  }
+
+  @include media-375 {
+    display: none;
+  }
 }
 
 .phoneImage {
@@ -133,6 +207,11 @@
   height: 134px;
 
   @include media-1996 {
+    width: apxm(63px);
+    height: apxm(134px);
+  }
+
+  @include media-1280 {
     width: apxm(63px);
     height: apxm(134px);
   }
@@ -155,72 +234,153 @@
     margin-left: apxm(2px);
     font-size: apxm(14px);
   }
+
+  @include media-1280 {
+    margin-left: apxm(2px);
+    font-size: apxm(14px);
+  }
 }
 
 .slider {
-  width: 1084px;
+  width: 100%;
   height: 301px;
-  display: flex;
+  display: block;
+  position: relative;
 
   @include media-1996 {
-    width: apxm(1084px);
+    width: 100%;
     height: apxm(301px);
+  }
+
+  @include media-375 {
+    width: 100%;
+    height: apxm(255px);
   }
 }
 
 .sliderContainer {
   position: relative;
   display: flex;
-  width: 1084px;
-  gap: 40px;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
 
   @include media-1996 {
-    width: apxm(1084px);
-    gap: apxm(40px);
+    width: 100%;
+  }
+
+  @include media-375 {
+    width: 100%;
+    display: block;
+  }
+
+  &:nth-child(1) .imageContainer:nth-child(1),
+  &:nth-child(2) .imageContainer:nth-child(1),
+  &:nth-child(3) .imageContainer:nth-child(1),
+  &:nth-child(4) .imageContainer:nth-child(1) {
+    width: 443px;
+    height: 301px;
+
+    @include media-1996 {
+      width: apxm(443px);
+      height: apxm(301px);
+    }
+
+    @include media-1280 {
+      width: apxm(443px);
+      height: apxm(301px);
+    }
+
+    @include media-375 {
+      width: apxm(375px);
+      height: apxm(255px);
+      left: apxm(-26px);
+      top: apxm(-99px);
+    }
+  }
+
+  &:nth-child(1) .imageContainer:nth-child(2),
+  &:nth-child(2) .imageContainer:nth-child(2),
+  &:nth-child(3) .imageContainer:nth-child(2),
+  &:nth-child(4) .imageContainer:nth-child(2) {
+    width: 176px;
+    height: 347px;
+    left: auto;
+    right: 108px;
+    top: -90px;
+
+    @include media-1996 {
+      width: apxm(176px);
+      height: apxm(347px);
+      right: apxm(108px);
+      top: apxm(-90px);
+      left: auto;
+    }
+
+    @include media-1280 {
+      width: apxm(168px);
+      height: apxm(332px);
+      right: apxm(111px);
+      top: apxm(-95px);
+    }
+
+    @include media-375 {
+      width: apxm(136px);
+      height: apxm(269px);
+      right: apxm(2px);
+      top: apxm(116px);
+    }
   }
 }
 
-.sliderFirst {
+.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.imageContainer {
   position: absolute;
-  top: 0;
-  left: -105px;
-  margin: 0;
-  padding: 0;
-  width: 443px;
-  height: 301px;
-  display: flex;
-  gap: 301px;
-
-  @include media-1996 {
-    width: apxm(443px);
-    height: apxm(301px);
-    left: apxm(-105px);
-    gap: apxm(301px);
-  }
+  overflow: hidden;
 }
 
-.sliderSecond {
-  position: absolute;
-  top: -90px;
-  right: 115px;
-  margin: 0;
-  padding: 0;
-  width: 176px;
-  height: 347px;
-
-  @include media-1996 {
-    width: apxm(176px);
-    height: apxm(347px);
-    top: apxm(-90px);
-    right: apxm(115px);
-  }
-}
-
-.image {
+.sliderImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
+  transform: translateX(-120%);
+}
+
+.currentImage {
+  transform: translateX(0);
+}
+
+.prevImage {
+  animation: fromCenterToLeft 0.8s linear forwards;
+  animation-delay: var(--delay);
+}
+
+.nextImage {
+  animation: fromRightToCenter 0.8s linear forwards;
+  animation-delay: var(--delay);
+}
+
+@keyframes fromCenterToLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-120%);
+  }
+}
+
+@keyframes fromRightToCenter {
+  from {
+    transform: translateX(120%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 .nextFilter {
@@ -233,10 +393,24 @@
   gap: 52px;
 
   @include media-1996 {
-    right: apxm(180px);
-    bottom: apxm(14px);
+    right: apxm(70px);
+    bottom: apxm(-82px);
     width: apxm(214px);
     gap: apxm(52px);
+  }
+
+  @include media-1280 {
+    right: apxm(64px);
+    bottom: apxm(-171px);
+    width: apxm(214px);
+    gap: apxm(52px);
+  }
+
+  @include media-375 {
+    width: apxm(164px);
+    bottom: apxm(-216px);
+    left: apxm(2px);
+    gap: apxm(20px);
   }
 }
 
@@ -252,6 +426,14 @@
   @include media-1996 {
     font-size: apxm(10px);
   }
+
+  @include media-1280 {
+    font-size: apxm(10px);
+  }
+
+  @include media-375 {
+    font-size: apxm(10px);
+  }
 }
 
 .arrow {
@@ -261,6 +443,16 @@
   @include media-1996 {
     width: apxm(172px);
     height: apxm(29px);
+  }
+
+  @include media-1280 {
+    width: apxm(166px);
+    height: apxm(29px);
+  }
+
+  @include media-375 {
+    width: apxm(164px);
+    height: apxm(20px);
   }
 }
 
@@ -273,6 +465,14 @@
   align-items: center;
   justify-content: center;
   z-index: 1;
+
+  @include media-1280 {
+    top: apxm(60px);
+  }
+
+  @include media-375 {
+    display: none;
+  }
 }
 
 .customText {
@@ -286,12 +486,20 @@
     font-size: apxm(280px);
   }
 
+  @include media-1280 {
+    font-size: apxm(195px);
+  }
+
   &:nth-of-type(2),
   &:nth-of-type(3) {
     font-size: 205px;
 
     @include media-1996 {
       font-size: apxm(205px);
+    }
+
+    @include media-1280 {
+      font-size: apxm(135px);
     }
   }
 
