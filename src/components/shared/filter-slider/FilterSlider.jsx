@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import styles from './styles.module.scss';
 import { cn } from '@/lib/utils.js';
 import { NextButton, Button } from '@/components/ui';
-import 'swiper/scss';
-import 'swiper/scss/effect-creative';
 import { content } from './slider-images';
 import arrow from '@/assets/arrow.png';
 import phone from '@/assets/phone.png';

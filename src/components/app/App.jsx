@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styles from './styles.module.scss';
 import Header from '../shared/header/Header';
 import Preview from '../shared/preview/Preview';
@@ -12,19 +12,32 @@ import FilterSlider from '../shared/filter-slider/FilterSlider';
 import Vertcial from '../shared/vertical/Vertcial';
 
 export default function App() {
+  const coloborationRef = useRef(null);
+  const heroRef = useRef(null);
+  const shopRef = useRef(null);
+
+  const scrollToSection = (ref) => {
+    ref.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <>
       <Vertcial />
-      <Header />
-      <Preview />
-      <Hero />
+      <Header
+        coloborationRef={coloborationRef}
+        heroRef={heroRef}
+        shopRef={shopRef}
+        scrollToSection={scrollToSection}
+      />
+      <Preview coloborationRef={coloborationRef} />
+      <Hero heroRef={heroRef} />
       <Concept />
       <FilterSlider />
       <div className={styles.contest}></div>
       <Collection />
       <VideoSection />
       <Backstage />
-      <Shop />
+      <Shop shopRef={shopRef} />
     </>
   );
 }

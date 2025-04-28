@@ -6,9 +6,9 @@ import previewTitleMobile from '@/assets/preview-title-mobile.png';
 import natureVideo from '@/assets/video/100408-video-1080.mp4';
 import { Video } from '../../ui';
 
-export default function Preview() {
+export default function Preview({coloborationRef}) {
   return (
-    <section className={styles.preview}>
+    <section ref={coloborationRef} className={styles.preview}>
       <div className={styles.container}>
         <img className={styles.logo} src={previewTitle} alt="xiaomi" />
         <img className={styles.logoMobile} src={previewTitleMobile} alt="xiaomi" />

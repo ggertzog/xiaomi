@@ -52,6 +52,27 @@
     margin-left: apxm(212px);
     padding: 0;
   }
+
+  &:after {
+    content: 'Весь фото- и видеоконтент на сайте создан с помощью Mi 10T PRO.';
+    position: absolute;
+    font-family: $font-family-primary;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 16px;
+    text-transform: uppercase;
+    color: $text-color-secondary;
+    transform: rotate(270deg);
+    left: 585px;
+    top: 9px;
+
+    @include media-1996 {
+      font-size: apxm(10px);
+      line-height: apxm(16px);
+      left: apxm(585px);
+      top: apxm(9px);
+    }
+  }
 }
 
 .logo {

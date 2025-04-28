@@ -138,6 +138,7 @@
   margin-top: 45px;
   display: flex;
   gap: 26px;
+  z-index: 5;
 
   @include media-1996 {
     margin-top: apxm(45px);
@@ -172,6 +173,13 @@
   text-align: center;
   vertical-align: middle;
   text-transform: uppercase;
+  cursor: pointer;
+  opacity: 1;
+  transition: .4s opacity ease-in;
+
+  &:hover {
+    opacity: 0.7;
+  }
 
   @include media-1996 {
     padding: apxm(27px) 0;
@@ -221,6 +229,7 @@
   gap: 15px;
   display: flex;
   align-items: center;
+  z-index: 5;
 
   @include media-1996 {
     margin-top: apxm(106px);

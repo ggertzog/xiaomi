@@ -3,23 +3,23 @@ import styles from './styles.module.scss';
 import logo from '@/assets/logo.png';
 import brand from '@/assets/xiaomi.png';
 
-export default function Header() {
+export default function Header({ coloborationRef, heroRef, shopRef, scrollToSection }) {
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
-        <a className={styles.link} href="#">
+        <button className={styles.link} onClick={() => scrollToSection(coloborationRef)}>
           КОЛЛАБОРАЦИЯ
-        </a>
-        <a className={styles.link} href="#">
+        </button>
+        <button className={styles.link} onClick={() => scrollToSection(heroRef)}>
           Серия Mi&nbsp;10T
-        </a>
-        <a className={styles.link} href="#">
+        </button>
+        <button className={styles.link} onClick={() => scrollToSection(shopRef)}>
           ГДЕ КУПИТЬ
-        </a>
+        </button>
       </nav>
       <div className={styles.logo}>
-        <img className={styles.icon} src={logo} alt="" />
-        <img className={styles.brand} src={brand} alt="" />
+        <img className={styles.icon} src={logo} alt="logo" />
+        <img className={styles.brand} src={brand} alt="brand" />
       </div>
     </header>
   );

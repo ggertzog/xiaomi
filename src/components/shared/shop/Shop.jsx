@@ -1,14 +1,12 @@
 import React from 'react';
 import styles from './styles.module.scss';
-
 import data from './mock-data';
-
 import { Icon } from '../../ui';
 
-export default function Shop() {
+export default function Shop({shopRef}) {
   return (
     <section className={styles.shop}>
-      <div className={styles.container}>
+      <div ref={shopRef} className={styles.container}>
         <h3 className={styles.title}>где купить</h3>
         <p className={styles.description}>
           Оформить заказ на&nbsp;смартфон из&nbsp;серии Mi&nbsp;10T и&nbsp;купить вещи

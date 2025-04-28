@@ -6,9 +6,9 @@ import heroMain from '@/assets/hero-main.png';
 import heroLogo from '@/assets/hero-icon.png';
 import model from '@/assets/model.png';
 
-export default function Hero() {
+export default function Hero({ heroRef }) {
   return (
-    <section className={styles.hero}>
+    <section ref={heroRef} className={styles.hero}>
       <div className={styles.figure}>
         <img className={styles.model} src={model} alt="model" />
 

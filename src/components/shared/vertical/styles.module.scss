@@ -83,13 +83,6 @@
   @include media-375 {
     width: apxm(163px);
   }
-
-  & .image:nth-child(2), &:nth-child(2) .image:nth-child(1) {
-    -moz-transform: scaleX(-1);
-    -o-transform: scaleX(-1);
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
-  }
 }
 
 .image {
