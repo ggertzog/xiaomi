@@ -1,54 +1,32 @@
-@use 'sass:math';
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=PT+Mono&display=swap');
 
-//Цвета
-$background-color-primary: #1c1c1c;
-$background-color-secondary: #352c5d;
-$text-color-primary: #ffffff;
-$text-color-secondary: #c35ab8;
+// colors
+$color-white: #fff;
+$color-black: #1c1c1c;
+$color-violet: #352c5d;
+$color-pink: #c35ab8;
 
-//Шрифт
+// fonts
 $font-family-primary: 'PT Mono', monospace;
 $font-family-secondary: 'IBM Plex Mono', monospace;
 
-/// Округляет число до 4 знаков после запятой.
-/// @param {Number} $val - Число, которое нужно округлить.
-/// @return {Number} - Округлённое число с точностью до 4 знаков после запятой.
-@function r2f($val) {
-  @return math.div(math.round($val * 10000), 10000);
-}
+// font sizes
+$font-size-base: 14px;
+$font-size-quote: 17px;
+$font-size-base-big: 12px;
+$font-size-h1: 40px;
+$font-size-base-mob: 14px;
+$font-size-h1mob: 30px;
 
-/// Преобразует значение из пикселей в `vw` относительно базовой ширины 700px.
-/// Результат округляется до 4 знаков после запятой с помощью функции `r2f`.
-/// @param {Number} $px - Значение в пикселях, которое нужно преобразовать.
-/// @return {Number} - Значение в `vw`, округлённое до 4 знаков после запятой.
-@function apx($px) {
-  @return r2f(math.div($px, 700px) * 100vw);
-}
+// font weight
+$font-weight-base: 400;
+$font-weight-bold: 700;
 
-@function apxm($px) {
-  @return r2f(math.div($px, $dbreak) * 100vw);
-}
+//line height
+$line-height-base: 18px;
+$line-height-quote: 22px;
+$line-height-base-big: 20px;
+$line-height-h1: auto;
+$line-height-base-mob: 20px;
+$line-height-h1mob: auto;
 
-$dbreak: 1920px !default;
-
-@mixin media-1996 {
-  @media screen and (max-width: 1996px) {
-    $dbreak: 1996px !global;
-    @content;
-  }
-}
-
-@mixin media-1280 {
-    @media screen and (max-width: 1280px) {
-      $dbreak: 1280px !global;
-      @content;
-    }
-}
-
-@mixin media-375 {
-  @media screen and (max-width: 376px) {
-    $dbreak: 376px !global;
-    @content;
-  }
-}

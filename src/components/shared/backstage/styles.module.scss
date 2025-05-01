@@ -1,4 +1,5 @@
 @use '@/styles/variables.scss' as *;
+@use '@/styles/mixins.scss' as *;
 
 .backstage {
   width: 1996px;
@@ -62,7 +63,6 @@
 
   @include media-375 {
     left: 0;
-    // left: apxm(-30px);
     top: apxm(-100px);
     height: apxm(557px);
     width: apxm(375px);
@@ -116,49 +116,12 @@
 }
 
 .title {
-  font-family: $font-family-primary;
-  font-weight: 400;
-  font-size: 40px;
-  line-height: 100%;
-  letter-spacing: 0%;
-  text-transform: uppercase;
-  color: $text-color-primary;
-
-  @include media-1996 {
-    font-size: apxm(40px);
-  }
-
-  @include media-1280 {
-    font-size: apxm(40px);
-  }
-
-  @include media-375 {
-    font-size: apxm(30px);
-  }
+  @include title;
+  color: $color-white;
 }
 
 .text {
-  font-family: $font-family-primary;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
-  letter-spacing: 0%;
-  color: $text-color-primary;
-
-  @include media-1996 {
-    font-size: apxm(14px);
-    line-height: apxm(18px);
-  }
-
-  @include media-1280 {
-    font-size: apxm(14px);
-    line-height: apxm(18px);
-  }
-
-  @include media-375 {
-    font-size: apxm(14px);
-    line-height: apxm(18px);
-  }
+  @include base-big;
 }
 
 .buttonContainer {

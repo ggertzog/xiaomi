@@ -1,4 +1,5 @@
 @use '@/styles/variables.scss' as *;
+@use '@/styles/mixins.scss' as *;
 
 .header {
   padding: 53px 67px;
@@ -26,7 +27,7 @@
   @include media-375 {
     width: 100%;
     position: relative;
-    background-color: #1c1c1c;
+    background-color: $color-black;
     justify-content: space-between;
     padding: apxm(28px) apxm(23.51px);
   }
@@ -128,12 +129,12 @@
   text-transform: uppercase;
   text-decoration: underline;
   text-decoration-style: solid;
-  color: $text-color-primary;
+  color: $color-white;
   background-color: transparent;
   border: none;
   cursor: pointer;
   opacity: 1;
-  transition: .4s opacity ease-in;
+  transition: 0.4s opacity ease-in;
 
   &:hover {
     opacity: 0.7;
@@ -149,5 +150,6 @@
 
   @include media-375 {
     font-size: apxm(14px);
+    text-align: left;
   }
 }

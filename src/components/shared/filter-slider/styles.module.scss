@@ -51,7 +51,7 @@
     font-size: 10px;
     line-height: 16px;
     text-transform: uppercase;
-    color: $text-color-secondary;
+    color: $color-pink;
     transform: rotate(270deg);
     text-wrap: nowrap;
     right: 253px;
@@ -62,6 +62,17 @@
       line-height: apxm(16px);
       right: apxm(253px);
       top: apxm(280px);
+    }
+
+    @include media-1280 {
+      font-size: apxm(10px);
+      line-height: apxm(16px);
+      left: apxm(391px);
+      top: apxm(188px);
+    }
+
+    @include media-375 {
+      display: none;
     }
   }
 }
@@ -84,6 +95,7 @@
   @include media-375 {
     margin-left: apxm(2px);
     gap: apxm(23px);
+    z-index: 5;
   }
 }
 
@@ -168,26 +180,17 @@
 }
 
 .description {
+  @include base;
   margin-left: 5px;
-  font-family: $font-family-primary;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
-  letter-spacing: 0%;
-  color: $text-color-primary;
   width: 260px;
 
   @include media-1996 {
-    font-size: apxm(14px);
-    line-height: apxm(18px);
     width: apxm(260px);
     margin-left: apxm(5px);
   }
 
   @include media-1280 {
     margin: 0;
-    font-size: apxm(14px);
-    line-height: apxm(18px);
     width: apxm(230px);
   }
 
@@ -250,7 +253,7 @@
   text-decoration: underline;
   text-decoration-style: solid;
   text-decoration-thickness: 0%;
-  color: $text-color-secondary;
+  color: $color-pink;
 
   @include media-1996 {
     margin-left: apxm(2px);
@@ -443,7 +446,7 @@
   line-height: 100%;
   letter-spacing: 0%;
   text-transform: uppercase;
-  color: $text-color-primary;
+  color: $color-white;
 
   @include media-1996 {
     font-size: apxm(10px);

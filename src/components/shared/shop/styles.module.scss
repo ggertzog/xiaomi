@@ -1,4 +1,5 @@
 @use '@/styles/variables.scss' as *;
+@use '@/styles/mixins.scss' as *;
 
 .shop {
   width: 1996px;
@@ -43,54 +44,29 @@
 }
 
 .title {
-  font-family: $font-family-primary;
-  font-weight: 400;
-  font-size: 40px;
-  line-height: 100%;
-  letter-spacing: 0%;
-  text-transform: uppercase;
-  color: $text-color-secondary;
-
-  @include media-1996 {
-    font-size: apxm(40px);
-  }
-
-  @include media-1280 {
-    font-size: apxm(40px);
-  }
+  @include title;
 
   @include media-375 {
-    font-size: apxm(30px);
     margin-left: apxm(32px);
   }
 }
 
 .description {
+  @include base;
   margin-top: 36px;
   width: 634px;
-  font-family: $font-family-primary;
-  color: $text-color-primary;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
-  letter-spacing: 0%;
 
   @include media-1996 {
     margin-top: apxm(36px);
     width: apxm(634px);
-    font-size: apxm(14px);
-    line-height: apxm(18px);
   }
 
   @include media-1280 {
     margin-top: apxm(35px);
     width: apxm(634px);
-    font-size: apxm(14px);
-    line-height: apxm(18px);
   }
 
   @include media-375 {
-    font-size: apxm(14px);
     line-height: apxm(20px);
     width: apxm(312px);
     margin-left: apxm(32px);
@@ -102,32 +78,22 @@
 }
 
 .discount {
+  @include base;
   margin-top: 25px;
   width: 604px;
-  font-family: $font-family-primary;
-  color: $text-color-secondary;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
-  letter-spacing: 0%;
+  color: $color-pink;
 
   @include media-1996 {
     margin-top: apxm(25px);
     width: apxm(604px);
-    font-size: apxm(14px);
-    line-height: apxm(18px);
   }
 
   @include media-1280 {
     margin-top: apxm(25px);
     width: apxm(604px);
-    font-size: apxm(14px);
-    line-height: apxm(18px);
   }
 
   @include media-375 {
-    font-size: apxm(14px);
-    line-height: apxm(18px);
     width: apxm(312px);
     margin-left: apxm(32px);
     margin-top: apxm(13px);
@@ -162,10 +128,10 @@
   padding: 27px 0;
   width: 399px;
   background-color: transparent;
-  border: 1px solid $text-color-secondary;
+  border: 1px solid $color-pink;
   border-radius: 10px;
   font-family: $font-family-primary;
-  color: $text-color-primary;
+  color: $color-white;
   font-weight: 700;
   font-size: 15px;
   line-height: 20px;
@@ -175,7 +141,7 @@
   text-transform: uppercase;
   cursor: pointer;
   opacity: 1;
-  transition: .4s opacity ease-in;
+  transition: 0.4s opacity ease-in;
 
   &:hover {
     opacity: 0.7;
@@ -254,7 +220,7 @@
 .copyright {
   margin-top: 45px;
   font-family: $font-family-primary;
-  color: $text-color-primary;
+  color: $color-white;
   font-weight: 400;
   font-size: 11px;
   line-height: 18px;

@@ -51,7 +51,7 @@
     font-size: 10px;
     line-height: 16px;
     text-transform: uppercase;
-    color: $text-color-secondary;
+    color: $color-pink;
     transform: rotate(270deg);
     left: 454px;
     bottom: -475px;
@@ -61,6 +61,17 @@
       line-height: apxm(16px);
       left: apxm(454px);
       bottom: apxm(-475px);
+    }
+
+    @include media-1280 {
+      font-size: apxm(10px);
+      line-height: apxm(16px);
+      left: apxm(470px);
+      bottom: apxm(-707px);
+    }
+
+    @include media-375 {
+      display: none;
     }
   }
 }
@@ -90,6 +101,7 @@
   }
 
   @include media-375 {
+    display: none;
   }
 }
 
@@ -203,7 +215,7 @@
 
   p {
     font-family: $font-family-primary;
-    color: $text-color-primary;
+    color: $color-white;
     font-weight: 700;
     font-size: 10px;
     line-height: 100%;
@@ -266,52 +278,11 @@
 }
 
 .text {
-  font-family: $font-family-secondary;
-  color: $text-color-primary;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 20px;
-  letter-spacing: 0%;
-
-  @include media-1996 {
-    font-size: apxm(12px);
-    line-height: apxm(20px);
-  }
-
-  @include media-1280 {
-    font-size: apxm(12px);
-    line-height: apxm(20px);
-  }
-
-  @include media-375 {
-    font-size: apxm(12px);
-    line-height: apxm(20px);
-  }
+  @include base-big;
 }
 
 .link {
-  font-family: $font-family-primary;
-  font-weight: 400;
-  font-size: 17px;
-  line-height: 22px;
-  letter-spacing: 0%;
-  text-transform: uppercase;
-  color: $text-color-secondary;
-
-  @include media-1996 {
-    font-size: apxm(17px);
-    line-height: apxm(22px);
-  }
-
-  @include media-1280 {
-    font-size: apxm(17px);
-    line-height: apxm(22px);
-  }
-
-  @include media-375 {
-    font-size: apxm(17px);
-    line-height: apxm(22px);
-  }
+  @include quote;
 }
 
 .slider {

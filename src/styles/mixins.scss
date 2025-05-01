@@ -1,22 +1,135 @@
+@use 'sass:math';
 @use './variables.scss' as *;
+
+/// Округляет число до 4 знаков после запятой.
+/// @param {Number} $val - Число, которое нужно округлить.
+/// @return {Number} - Округлённое число с точностью до 4 знаков после запятой.
+@function r2f($val) {
+  @return math.div(math.round($val * 10000), 10000);
+}
+
+/// Преобразует значение из пикселей в `vw` относительно базовой ширины 700px.
+/// Результат округляется до 4 знаков после запятой с помощью функции `r2f`.
+/// @param {Number} $px - Значение в пикселях, которое нужно преобразовать.
+/// @return {Number} - Значение в `vw`, округлённое до 4 знаков после запятой.
+@function apx($px) {
+  @return r2f(math.div($px, 700px) * 100vw);
+}
+
+@function apxm($px) {
+  @return r2f(math.div($px, $dbreak) * 100vw);
+}
+
+$dbreak: 1920px !default;
+
+@mixin media-1996 {
+  @media screen and (max-width: 1996px) {
+    $dbreak: 1996px !global;
+    @content;
+  }
+}
+
+@mixin media-1280 {
+  @media screen and (max-width: 1280px) {
+    $dbreak: 1280px !global;
+    @content;
+  }
+}
+
+@mixin media-375 {
+  @media screen and (max-width: 376px) {
+    $dbreak: 376px !global;
+    @content;
+  }
+}
 
 @mixin title {
   font-family: $font-family-primary;
-  font-weight: 400;
-  font-size: 40px;
+  font-weight: $font-weight-base;
+  font-size: $font-size-h1;
   text-transform: uppercase;
-  color: $text-color-secondary;
+  color: $color-pink;
 
   @include media-1996 {
-    font-size: apxm(40px);
+    font-size: apxm($font-size-h1);
   }
 
   @include media-1280 {
-    font-size: apxm(40px);
+    font-size: apxm($font-size-h1);
   }
 
   @include media-375 {
-    font-size: 30px;
+    font-size: apxm($font-size-h1mob);
+  }
+}
+
+@mixin base-big {
+  font-family: $font-family-secondary;
+  font-weight: $font-weight-base;
+  font-size: $font-size-base-big;
+  line-height: $line-height-base-big;
+  color: $color-white;
+
+  @include media-1996 {
+    font-size: apxm($font-size-base-big);
+    line-height: apxm($line-height-base-big);
+  }
+
+  @include media-1280 {
+    font-size: apxm($font-size-base-big);
+    line-height: apxm($line-height-base-big);
+  }
+
+  @include media-375 {
+    font-size: apxm($font-size-base-big);
+    line-height: apxm($line-height-base-big);
+  }
+}
+
+@mixin base {
+  font-family: $font-family-primary;
+  font-size: $font-size-base;
+  font-weight: $font-weight-base;
+  line-height: $line-height-base;
+  color: $color-white;
+
+  @include media-1996 {
+    font-size: apxm($font-size-base);
+    line-height: apxm($line-height-base);
+  }
+
+  @include media-1280 {
+    font-size: apxm($font-size-base);
+    line-height: apxm($line-height-base);
+  }
+
+  @include media-375 {
+    font-size: apxm($font-size-base);
+    line-height: apxm($line-height-base);
+  }
+}
+
+@mixin quote {
+  font-family: $font-family-primary;
+  font-size: $font-size-quote;
+  font-weight: $font-weight-base;
+  line-height: $line-height-quote;
+  color: $color-pink;
+  text-transform: uppercase;
+
+  @include media-1996 {
+    font-size: apxm($font-size-quote);
+    line-height: apxm($line-height-quote);
+  }
+
+  @include media-1280 {
+    font-size: apxm($font-size-quote);
+    line-height: apxm($line-height-quote);
+  }
+
+  @include media-375 {
+    font-size: apxm($font-size-quote);
+    line-height: apxm($line-height-quote);
   }
 }
 
@@ -26,7 +139,7 @@
   }
 
   &:focus-visible {
-    outline: 2px solid $text-color-primary;
+    outline: 2px solid $color-white;
     outline-offset: 2px;
   }
 
@@ -38,7 +151,6 @@
 @mixin button-base {
   background-color: transparent;
   border: none;
-  // border-bottom: 1px solid $text-color-primary;
   font-family: $font-family-primary;
   font-weight: 700;
   line-height: 100%;
@@ -46,7 +158,7 @@
   text-transform: uppercase;
   text-decoration-style: solid;
   text-decoration-thickness: 0%;
-  color: $text-color-primary;
+  color: $color-white;
   cursor: pointer;
   opacity: 100%;
   transition: 0.4s ease-in-out opacity;

@@ -9,7 +9,7 @@
 }
 
 .buttonActive {
-  border-bottom: 1px solid $text-color-secondary;
+  border-bottom: 1px solid $color-pink;
 
   .underline::after {
     width: 100%;
@@ -27,7 +27,7 @@
   bottom: 0;
   left: 0;
   height: 1px;
-  background-color: $text-color-primary;
+  background-color: $color-white;
   width: 100%;
 
   &::after {
@@ -37,7 +37,7 @@
     left: 0;
     height: 8px;
     width: 0;
-    background-color: $text-color-secondary;
+    background-color: $color-pink;
     transition: width 0.3s ease-out;
 
     @include media-1996 {

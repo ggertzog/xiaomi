@@ -1,11 +1,11 @@
 @use '@/styles/variables.scss' as *;
+@use '@/styles/mixins.scss' as *;
 
 .preview {
   display: flex;
   height: 1031px;
   width: 1996px;
   position: relative;
-  z-index: 1;
 
   @include media-1996 {
     height: apxm(1031px);
@@ -38,7 +38,7 @@
   display: flex;
   flex-direction: column;
   gap: 17px;
-  z-index: 2;
+  z-index: 5;
 
   @include media-1996 {
     gap: apxm(17px);
@@ -61,7 +61,7 @@
     font-size: 10px;
     line-height: 16px;
     text-transform: uppercase;
-    color: $text-color-secondary;
+    color: $color-pink;
     transform: rotate(270deg);
     left: 585px;
     top: 9px;
@@ -71,6 +71,17 @@
       line-height: apxm(16px);
       left: apxm(585px);
       top: apxm(9px);
+    }
+
+    @include media-1280 {
+      font-size: apxm(10px);
+      line-height: apxm(16px);
+      left: apxm(336px);
+      top: apxm(9px);
+    }
+
+    @include media-375 {
+      display: none;
     }
   }
 }
@@ -120,7 +131,7 @@
   font-weight: 700;
   font-size: 13px;
   text-transform: uppercase;
-  color: $text-color-primary;
+  color: $color-white;
   align-self: flex-end;
 
   span {

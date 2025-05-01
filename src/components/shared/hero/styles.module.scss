@@ -1,4 +1,5 @@
 @use '@/styles/variables.scss' as *;
+@use '@/styles/mixins.scss' as *;
 
 .hero {
   width: 1996px;
@@ -142,17 +143,18 @@
   @include media-375 {
     margin-top: 0;
     width: apxm(316px);
+    z-index: 5;
   }
 
   &:after {
     content: 'Весь фото- и видеоконтент на сайте создан с помощью Mi 10T PRO.';
     position: absolute;
     font-family: $font-family-primary;
-    font-weight: 400;
+    font-weight: $font-weight-base;
     font-size: 10px;
     line-height: 16px;
     text-transform: uppercase;
-    color: $text-color-secondary;
+    color: $color-pink;
     transform: rotate(270deg);
     left: 346px;
     top: 540px;
@@ -164,31 +166,25 @@
       left: apxm(346px);
       top: apxm(540px);
     }
+
+    @include media-1280 {
+      font-size: apxm(10px);
+      line-height: apxm(16px);
+      left: apxm(336px);
+      top: apxm(540px);
+    }
+
+    @include media-375 {
+      font-size: apxm(10px);
+      line-height: apxm(16px);
+      left: apxm(60px);
+      top: apxm(-54px);
+    }
   }
 }
 
 .text {
-  font-family: $font-family-secondary;
-  color: $text-color-primary;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 20px;
-  letter-spacing: 0%;
-
-  @include media-1996 {
-    font-size: apxm(12px);
-    line-height: apxm(20px);
-  }
-
-  @include media-1280 {
-    font-size: apxm(12px);
-    line-height: apxm(20px);
-  }
-
-  @include media-375 {
-    font-size: apxm(12px);
-    line-height: apxm(20px);
-  }
+  @include base-big;
 }
 
 .logo {
@@ -255,9 +251,9 @@
 .link {
   margin-top: 356.05px;
   font-family: $font-family-primary;
-  color: $text-color-secondary;
-  font-weight: 700;
-  font-size: 14px;
+  color: $color-pink;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-base;
   line-height: 100%;
   text-transform: uppercase;
   text-decoration: underline;
@@ -265,12 +261,12 @@
 
   @include media-1996 {
     margin-top: apxm(356.05px);
-    font-size: apxm(14px);
+    font-size: apxm($font-size-base);
   }
 
   @include media-1280 {
     margin-top: apxm(375px);
-    font-size: apxm(14px);
+    font-size: apxm($font-size-base);
   }
 
   @include media-375 {

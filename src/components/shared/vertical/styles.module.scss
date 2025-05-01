@@ -1,20 +1,24 @@
-@use '@/styles/variables.scss' as *;
+@use '@/styles/mixins.scss' as *;
 
 .vertical {
   position: absolute;
-  width: 100%;
-  z-index: 3;
+  width: 1996px;
+
+  @include media-1996 {
+    width: apxm(1996px);
+  }
+
 }
 
 .container {
   position: relative;
-  left: -28px;
   display: flex;
+  width: 100%;
   gap: 370px;
   justify-content: center;
+  align-items: center;
 
   @include media-1996 {
-    left: apxm(-28px);
     gap: apxm(370px);
   }
 
@@ -25,9 +29,8 @@
   @include media-375 {
     display: flex;
     flex-direction: column;
-    gap: 0;
-    left: apxm(24px);
     gap: apxm(94px);
+    align-items: flex-start;
   }
 
   & .imgContainer:nth-child(1) {
@@ -45,6 +48,11 @@
     @include media-375 {
       top: apxm(22px);
       gap: apxm(238px);
+      left: apxm(24.5px);
+
+      & .image:nth-child(2) {
+        transform: scaleX(-1);
+      }
     }
   }
 
@@ -61,7 +69,9 @@
     }
 
     @include media-375 {
+      transform: scaleX(-1);
       top: 0;
+      left: apxm(24.5px);
     }
   }
 }
@@ -71,6 +81,7 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  z-index: 5;
 
   @include media-1996 {
     width: apxm(325px);
