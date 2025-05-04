@@ -19,9 +19,10 @@ export default function Backstage() {
   const [animationDelays, setAnimationDelays] = useState({});
 
   const startAnimation = (nextSlide, index) => {
+    if (animationStage !== ANIMATION_STAGES.CURRENTLY) return;
     const delays = {};
     content[index].forEach((_, i) => {
-      delays[i] = i * 150;
+      delays[i] = i * 250;
     });
     setAnimationDelays(delays);
     setPrevSlideIndex(currentSlide);
@@ -30,7 +31,7 @@ export default function Backstage() {
     setTimeout(() => {
       setCurrentSlide(nextSlide);
       setAnimationStage(ANIMATION_STAGES.ENTERING);
-    }, 1000);
+    }, 900);
   };
 
   const handleNext = () => {
@@ -42,7 +43,7 @@ export default function Backstage() {
     if (animationStage === ANIMATION_STAGES.ENTERING) {
       const timer = setTimeout(() => {
         setAnimationStage(ANIMATION_STAGES.CURRENTLY);
-      }, 2000);
+      }, 1000);
 
       return () => clearTimeout(timer);
     }

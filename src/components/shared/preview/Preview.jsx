@@ -4,9 +4,9 @@ import previewTitle from '@/assets/preview-title.png';
 import previewTitleMobile from '@/assets/preview-title-mobile.png';
 
 import natureVideo from '@/assets/video/100408-video-1080.mp4';
-import { Video } from '../../ui';
+import { BackgroundVideo } from '../../ui';
 
-export default function Preview({coloborationRef}) {
+export default function Preview({ coloborationRef }) {
   return (
     <section ref={coloborationRef} className={styles.preview}>
       <div className={styles.container}>
@@ -18,7 +18,14 @@ export default function Preview({coloborationRef}) {
       </div>
 
       <div className={styles.background}>
-        <Video src={natureVideo} className={styles.video} />
+        <BackgroundVideo
+          src={natureVideo}
+          className={styles.video}
+          loop
+          playsInline
+          autoPlay
+          muted
+        />
       </div>
     </section>
   );

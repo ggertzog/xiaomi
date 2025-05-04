@@ -9,10 +9,19 @@
   align-items: center;
   justify-content: center;
   opacity: 1;
-  transition: .4s opacity ease-in;
+  transition: 0.3s opacity ease-in;
+  cursor: pointer;
 
-  &:hover {
-    opacity: 0.7;
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  @media (pointer: coarse) {
+    &:hover {
+      opacity: 1;
+    }
   }
 
   &:first-of-type .img {
@@ -41,6 +50,8 @@
   height: 32px;
   object-fit: contain;
   object-position: center;
+  user-select: none;
+  pointer-events: none;
 
   @include media-1996 {
     width: apxm(32px);

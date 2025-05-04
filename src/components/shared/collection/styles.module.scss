@@ -29,7 +29,6 @@
   position: relative;
   width: 1084px;
   display: flex;
-  z-index: 6;
 
   @include media-1996 {
     width: apxm(1084px);
@@ -55,6 +54,7 @@
     transform: rotate(270deg);
     left: 454px;
     bottom: -475px;
+    z-index: 5;
 
     @include media-1996 {
       font-size: apxm(10px);
@@ -85,6 +85,8 @@
   display: none;
   object-fit: cover;
   object-position: center;
+  user-select: none;
+  pointer-events: none;
 
   @include media-1996 {
     width: apxm(853px);
@@ -108,7 +110,6 @@
 .content {
   display: flex;
   flex-direction: column;
-  z-index: 2;
   gap: 33px;
 
   @include media-1996 {
@@ -123,6 +124,7 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
+  z-index: 5;
 
   @include media-1996 {
     gap: apxm(8px);
@@ -228,6 +230,8 @@
 .arrow {
   width: 214px;
   height: 29px;
+  user-select: none;
+  pointer-events: none;
 
   @include media-1996 {
     width: apxm(214px);
@@ -879,19 +883,24 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+  user-select: none;
+  pointer-events: none;
+  will-change: transform;
+}
 
-  // here
-  transform: translateX(120%);
-  transition: transform 0.8s ease-in-out;
+.currentImage {
+  transform: translateX(0);
 }
 
 .prevImage {
-  animation: fromCenterToLeft 0.8s linear forwards;
+  transform: translateX(0);
+  animation: fromCenterToLeft 0.5s ease-in-out forwards;
   animation-delay: var(--delay);
 }
 
 .nextImage {
-  animation: fromRightToCenter 0.8s linear forwards;
+  transform: translateX(120%);
+  animation: fromRightToCenter 0.5s ease-in forwards;
   animation-delay: var(--delay);
 }
 
@@ -917,18 +926,4 @@
   display: flex;
   visibility: visible;
   opacity: 1;
-
-  & .sliderImage {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.invisible {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.nextSlide {
-  transform: translateX(100%);
 }

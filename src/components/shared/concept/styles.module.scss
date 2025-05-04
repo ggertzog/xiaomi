@@ -51,6 +51,8 @@
   top: 180px;
   object-fit: cover;
   object-position: center;
+  user-select: none;
+  pointer-events: none;
 
   @include media-1996 {
     width: apxm(182px);
@@ -76,7 +78,9 @@
   height: 449px;
   position: relative;
   top: -45px;
-  z-index: 3;
+  z-index: 5;
+  user-select: none;
+  pointer-events: none;
 
   @include media-1996 {
     width: apxm(216px);

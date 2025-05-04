@@ -1,6 +1,7 @@
 @use '@/styles/mixins.scss' as *;
 
 .videoContainer {
+  position: relative;
   width: 1996px;
   height: 1025px;
 
@@ -25,5 +26,94 @@
 
   @include media-375 {
     height: apxm(197px);
+  }
+}
+
+.button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 5;
+  opacity: 0;
+  transition: 0.3s opacity ease-in;
+}
+
+.image {
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.controllButton {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  position: absolute;
+  inset: 50%;
+
+  @include media-1996 {
+    width: apxm(50px);
+    height: apxm(50px);
+  }
+
+  @include media-1280 {
+    width: apxm(50px);
+    height: apxm(50px);
+  }
+
+  @include media-375 {
+    width: apxm(30px);
+    height: apxm(30px);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.fullscreenButton {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  position: absolute;
+  right: 30px;
+  bottom: 30px;
+
+  @include media-1996 {
+    width: apxm(30px);
+    height: apxm(30px);
+    right: apxm(30px);
+    bottom: apxm(30px);
+  }
+
+  @include media-1280 {
+    width: apxm(30px);
+    height: apxm(30px);
+    right: apxm(20px);
+    bottom: apxm(20px);
+  }
+
+  @include media-375 {
+    width: apxm(20px);
+    height: apxm(20px);
+    right: apxm(10px);
+    bottom: apxm(10px);
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .videoContainer:hover .button {
+    opacity: 1;
+  }
+
+  .button:hover {
+    transform: scale(0.9, 0.9);
+  }
+}
+
+@media (pointer: coarse) {
+  .button {
+    opacity: 1;
   }
 }

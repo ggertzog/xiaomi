@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './styles.module.scss';
 import data from './mock-data';
-import { Icon } from '../../ui';
+import { SocialIcon } from '../../ui';
 
-export default function Shop({shopRef}) {
+export default function Shop({ shopRef }) {
   return (
     <section className={styles.shop}>
       <div ref={shopRef} className={styles.container}>
@@ -21,20 +21,20 @@ export default function Shop({shopRef}) {
           корнера на&nbsp;2-м этаже.
         </p>
         <div className={styles.buttonContainer}>
-          <button className={styles.button}>
+          <button type="button" className={styles.button}>
             Купить онлайн <br />
             смартфон из&nbsp;серии Mi&nbsp;10T
           </button>
-          <button className={styles.button}>
+          <button type="button" className={styles.button}>
             Купить онлайн <br />
             вещи из&nbsp;капсульной коллекции
           </button>
         </div>
-        <div className={styles.iconContainer}>
+        <ul className={styles.iconContainer}>
           {data.map((item) => (
-            <Icon key={item.id} src={item.src} alt={item.alt} />
+            <SocialIcon key={item.id} src={item.src} alt={item.alt} href={item.href} />
           ))}
-        </div>
+        </ul>
         <p className={styles.copyright}>
           &copy;&nbsp;2020 Xiaomi &amp;&nbsp;AYT&Lambda;&Omicron; Creative. Все права защищены
         </p>

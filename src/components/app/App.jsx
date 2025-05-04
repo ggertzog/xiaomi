@@ -35,7 +35,7 @@ export default function App() {
       <FilterSlider />
       <div className={styles.contest}></div>
       <Collection />
-      <VideoSection />
+      <VideoSection /> 
       <Backstage />
       <Shop shopRef={shopRef} />
     </>

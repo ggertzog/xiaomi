@@ -82,7 +82,7 @@
   display: flex;
   flex-direction: column;
   gap: 11px;
-  z-index: 3;
+  z-index: 5;
 
   @include media-1996 {
     gap: apxm(11px);
@@ -162,7 +162,7 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-  z-index: 4;
+  // z-index: 3;
 
   @include media-1996 {
     padding-left: apxm(112px);
@@ -230,6 +230,8 @@
 .phoneImage {
   width: 63px;
   height: 134px;
+  user-select: none;
+  pointer-events: none;
 
   @include media-1996 {
     width: apxm(63px);
@@ -254,6 +256,18 @@
   text-decoration-style: solid;
   text-decoration-thickness: 0%;
   color: $color-pink;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  @media (pointer: coarse) {
+    &:hover {
+      opacity: 1;
+    }
+  }
 
   @include media-1996 {
     margin-left: apxm(2px);
@@ -290,12 +304,7 @@
   opacity: 0;
   visibility: hidden;
 
-  @include media-1996 {
-    width: 100%;
-  }
-
   @include media-375 {
-    width: 100%;
     display: block;
   }
 
@@ -305,6 +314,7 @@
   &:nth-child(4) .imageContainer:nth-child(1) {
     width: 443px;
     height: 301px;
+    z-index: 3;
 
     @include media-1996 {
       width: apxm(443px);
@@ -333,6 +343,8 @@
     left: auto;
     right: 108px;
     top: -90px;
+    z-index: 3;
+    transition: 0.3s width ease-in;
 
     @include media-1996 {
       width: apxm(176px);
@@ -355,6 +367,27 @@
       right: apxm(2px);
       top: apxm(116px);
     }
+
+    & .sliderImage {
+      object-position: 67%;
+    }
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .sliderContainer:nth-child(1) .imageContainer:nth-child(2):hover,
+  .sliderContainer:nth-child(2) .imageContainer:nth-child(2):hover,
+  .sliderContainer:nth-child(3) .imageContainer:nth-child(2):hover {
+    z-index: 5;
+    width: 468px;
+
+    @include media-1996 {
+      width: apxm(468px);
+    }
+
+    @include media-1280 {
+      width: apxm(440px);
+    }
   }
 }
 
@@ -373,7 +406,8 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transform: translateX(-120%);
+  user-select: none;
+  pointer-events: none;
 }
 
 .currentImage {
@@ -381,12 +415,14 @@
 }
 
 .prevImage {
-  animation: fromCenterToLeft 0.8s linear forwards;
+  transform: translateX(0);
+  animation: fromCenterToLeft 0.5s ease-in-out forwards;
   animation-delay: var(--delay);
 }
 
 .nextImage {
-  animation: fromRightToCenter 0.8s linear forwards;
+  transform: translateX(120%);
+  animation: fromRightToCenter 0.5s ease-in forwards;
   animation-delay: var(--delay);
 }
 
@@ -416,6 +452,7 @@
   flex-direction: column;
   width: 214px;
   gap: 52px;
+  z-index: 5;
 
   @include media-1996 {
     right: apxm(70px);
@@ -464,6 +501,8 @@
 .arrow {
   width: 172px;
   height: 29px;
+  user-select: none;
+  pointer-events: none;
 
   @include media-1996 {
     width: apxm(172px);
@@ -489,7 +528,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  // z-index: 1;
 
   @include media-1280 {
     top: apxm(60px);
@@ -549,42 +587,50 @@
 }
 
 .customText span {
+  display: inline-block;
   background: inherit;
   background-clip: text;
-  display: inline-block;
-  animation: flicker 0.4s infinite alternate;
-  animation-delay: calc(0.06s * var(--char-index));
+  user-select: none;
+  pointer-events: none;
 }
 
-@keyframes flicker {
+.blinking {
+  animation: chaotic-flicker 0.7s 0.3s infinite alternate-reverse;
+  animation-timing-function: cubic-bezier(0.1, 0.7, 0.9, 0.2);
+  animation-delay: calc(0.03s * var(--char-index) + calc(0.06s * var(--random-delay)));
+}
+
+@keyframes chaotic-flicker {
   0% {
-    opacity: 100%;
+    opacity: 1;
+    filter: brightness(1);
   }
   15% {
-    opacity: 70%;
+    opacity: 0.3;
+    filter: brightness(0.6);
   }
-  25% {
-    opacity: 40%;
+  30% {
+    opacity: 0.8;
+    filter: brightness(1.2);
   }
-  35% {
-    opacity: 10%;
+  45% {
+    opacity: 0.2;
+    filter: brightness(0.3);
   }
-  55% {
-    opacity: 0;
-  }
-  65% {
-    opacity: 10%;
+  60% {
+    opacity: 0.9;
+    filter: brightness(1.1);
   }
   75% {
-    opacity: 40%;
+    opacity: 0.4;
+    filter: brightness(0.8);
   }
-  85% {
-    opacity: 70%;
-  }
-  95% {
-    opacity: 90%;
+  90% {
+    opacity: 0.6;
+    filter: brightness(0.5);
   }
   100% {
-    opacity: 100%;
+    opacity: 1;
+    filter: brightness(1);
   }
 }

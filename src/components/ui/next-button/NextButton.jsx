@@ -3,7 +3,7 @@ import styles from './styles.module.scss';
 
 export const NextButton = ({ title, children, ...props }) => {
   return (
-    <button className={styles.nextButton} {...props}>
+    <button type="button" className={styles.nextButton} {...props}>
       {title}
       {children}
     </button>

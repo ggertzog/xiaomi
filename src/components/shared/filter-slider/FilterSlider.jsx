@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './styles.module.scss';
 import { cn } from '@/lib/utils.js';
-import { NextButton, Button } from '@/components/ui';
+import { NextButton, TabButton } from '@/components/ui';
 import { content } from './slider-images';
 import arrow from '@/assets/arrow.png';
 import phone from '@/assets/phone.png';
@@ -26,25 +26,28 @@ const ANIMATION_STAGES = {
   ENTERING: 'entering',
 };
 
-export default function Slider() {
+export default function FilterSlider() {
   const [currentSlide, setCurrentSlide] = useState(1);
   const [animationStage, setAnimationStage] = useState(ANIMATION_STAGES.ENTERING);
   const [prevSlideIndex, setPrevSlideIndex] = useState(null);
   const [animationDelays, setAnimationDelays] = useState({});
+  const [blink, setBlink] = useState(false);
 
   const startAnimation = (nextSlide, index) => {
+    if (animationStage !== ANIMATION_STAGES.CURRENTLY) return;
     const delays = {};
     content[index].forEach((_, i) => {
-      delays[i] = i * 150;
+      delays[i] = i * 250;
     });
     setAnimationDelays(delays);
     setPrevSlideIndex(currentSlide);
+    setBlink(true);
     setAnimationStage(ANIMATION_STAGES.EXITING);
 
     setTimeout(() => {
       setCurrentSlide(nextSlide);
       setAnimationStage(ANIMATION_STAGES.ENTERING);
-    }, 1000);
+    }, 900);
   };
 
   const handleNext = () => {
@@ -55,8 +58,9 @@ export default function Slider() {
   useEffect(() => {
     if (animationStage === ANIMATION_STAGES.ENTERING) {
       const timer = setTimeout(() => {
+        setBlink(false);
         setAnimationStage(ANIMATION_STAGES.CURRENTLY);
-      }, 2000);
+      }, 1000);
 
       return () => clearTimeout(timer);
     }
@@ -76,7 +80,7 @@ export default function Slider() {
           </h3>
           <div className={styles.buttonContainer}>
             {buttonData.map((item, index) => (
-              <Button
+              <TabButton
                 key={item.id}
                 title={item.title}
                 active={index === currentSlide - 1 ? 'activeButton' : ''}
@@ -154,7 +158,10 @@ export default function Slider() {
               wordIndex === currentSlide - 1 && styles.customTextActive,
             )}>
             {item.word.split('').map((letter, letterIndex) => (
-              <span key={`${wordIndex}-${letterIndex}`} style={{ '--char-index': letterIndex }}>
+              <span
+                key={`${wordIndex}-${letterIndex}`}
+                style={{ '--char-index': letterIndex, '--random-delay': Math.random()}}
+                className={cn(blink && styles.blinking)}>
                 {letter}
               </span>
             ))}

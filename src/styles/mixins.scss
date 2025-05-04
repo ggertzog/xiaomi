@@ -134,8 +134,16 @@ $dbreak: 1920px !default;
 }
 
 @mixin hover-effect {
-  &:hover {
-    opacity: 50%;
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  @media (pointer: coarse) {
+    &:hover {
+      opacity: 1;
+    }
   }
 
   &:focus-visible {
@@ -161,7 +169,7 @@ $dbreak: 1920px !default;
   color: $color-white;
   cursor: pointer;
   opacity: 100%;
-  transition: 0.4s ease-in-out opacity;
+  transition: 0.3s ease-in-out opacity;
 }
 
 @mixin button {

@@ -1,4 +1,4 @@
-export { Button } from './button/Button';
-export { Icon } from './icon/Icon';
+export { TabButton } from './tab-button/TabButton';
+export { SocialIcon } from './social-icon/SocialIcon';
 export { NextButton } from './next-button/NextButton';
-export { Video } from './video/Video';
+export { BackgroundVideo } from './background-video/BackgroundVideo';

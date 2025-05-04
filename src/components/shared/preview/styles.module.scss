@@ -93,6 +93,8 @@
   height: 57px;
   display: block;
   position: relative;
+  user-select: none;
+  pointer-events: none;
 
   @include media-1996 {
     margin-top: apxm(2px);

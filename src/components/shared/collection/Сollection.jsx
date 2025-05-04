@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './styles.module.scss';
 import { cn } from '@/lib/utils.js';
-import { Button, NextButton } from '../../ui';
+import { TabButton, NextButton } from '../../ui';
 import arrow from '@/assets/arrow.png';
 import { collectionBackgroundImages, collectionImages } from './slider-images';
 
@@ -15,27 +15,28 @@ const ANIMATION_STAGES = {
 
 export default function Сollection() {
   const [currentSlide, setCurrentSlide] = useState(1);
-  const [animationStage, setAnimationStage] = useState(ANIMATION_STAGES.CURRENTLY);
+  const [animationStage, setAnimationStage] = useState(ANIMATION_STAGES.ENTERING);
   const [prevSlideIndex, setPrevSlideIndex] = useState(null);
   const [animationDelays, setAnimationDelays] = useState({});
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   const startAnimation = (nextSlide, index) => {
     if (animationStage !== ANIMATION_STAGES.CURRENTLY) return;
+
     const delays = {};
     collectionImages[index].forEach((_, i) => {
-      delays[i] = i * 100;
+      delays[i] = i * 150;
     });
     setAnimationDelays(delays);
     setPrevSlideIndex(currentSlide);
     setAnimationStage(ANIMATION_STAGES.EXITING);
 
-    const maxDelay = delays[collectionImages[index].length - 1] || 0;
-    const exitDuration = 1000 + maxDelay;
+    const maxDelay = Math.max(...Object.values(delays));
+    const exitDuration = 500 + maxDelay;
 
     setTimeout(() => {
-      setAnimationStage(ANIMATION_STAGES.ENTERING);
       setCurrentSlide(nextSlide);
+      setAnimationStage(ANIMATION_STAGES.ENTERING);
     }, exitDuration);
   };
 
@@ -53,7 +54,7 @@ export default function Сollection() {
     if (animationStage === ANIMATION_STAGES.ENTERING) {
       const timer = setTimeout(() => {
         setAnimationStage(ANIMATION_STAGES.CURRENTLY);
-      }, 1450);
+      }, 1400);
 
       return () => clearTimeout(timer);
     }
@@ -89,7 +90,7 @@ export default function Сollection() {
             <h2 className={styles.title}>коллекция</h2>
             <div className={styles.buttonContainer}>
               {buttonContent.map((item, index) => (
-                <Button
+                <TabButton
                   key={index}
                   title={item}
                   active={index === currentSlide - 1 ? 'activeButton' : ''}
@@ -108,16 +109,19 @@ export default function Сollection() {
                   arrIndex + 1 === currentSlide && styles.active,
                 )}>
                 {arr.map((item, itemIndex) => (
-                  <div className={cn(styles.imageContainer)} key={`${arrIndex}-${itemIndex}`}>
+                  <div className={cn(styles.imageContainer)} key={`${arrIndex} + ${itemIndex}`}>
                     <img
                       className={cn(
                         styles.sliderImage,
-                        animationStage === ANIMATION_STAGES.EXITING &&
-                          arrIndex + 1 === prevSlideIndex &&
-                          styles.prevImage,
                         animationStage === ANIMATION_STAGES.ENTERING &&
                           arrIndex + 1 === currentSlide &&
                           styles.nextImage,
+                        animationStage === ANIMATION_STAGES.EXITING &&
+                          arrIndex + 1 === prevSlideIndex &&
+                          styles.prevImage,
+                        animationStage === ANIMATION_STAGES.CURRENTLY &&
+                          arrIndex + 1 === currentSlide &&
+                          styles.currentImage,
                       )}
                       style={{ '--delay': `${animationDelays[itemIndex] || 0}ms` }}
                       src={item.content}

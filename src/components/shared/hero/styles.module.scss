@@ -60,6 +60,8 @@
   width: 1084px;
   height: 687px;
   z-index: 2;
+  pointer-events: none;
+  user-select: none;
 
   @include media-1996 {
     width: apxm(1084px);
@@ -225,6 +227,8 @@
   top: -161.05px;
   left: 326px;
   z-index: 3;
+  pointer-events: none;
+  user-select: none;
 
   @include media-1996 {
     width: apxm(419.49px);
@@ -258,6 +262,20 @@
   text-transform: uppercase;
   text-decoration: underline;
   z-index: 3;
+  opacity: 1;
+  transition: 0.3s opacity ease-in;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  @media (pointer: coarse) {
+    &:hover {
+      opacity: 1;
+    }
+  }
 
   @include media-1996 {
     margin-top: apxm(356.05px);
@@ -287,6 +305,8 @@
   z-index: 4;
   left: 106px;
   top: -87.31px;
+  user-select: none;
+  pointer-events: none;
 
   @include media-1996 {
     width: apxm(416.69px);
@@ -307,5 +327,6 @@
     height: apxm(97px);
     top: apxm(245px);
     left: apxm(4px);
+    z-index: 3;
   }
 }

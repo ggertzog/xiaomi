@@ -7,13 +7,16 @@ export default function Header({ coloborationRef, heroRef, shopRef, scrollToSect
   return (
     <header className={styles.header}>
       <nav className={styles.nav}>
-        <button className={styles.link} onClick={() => scrollToSection(coloborationRef)}>
+        <button
+          type="button"
+          className={styles.link}
+          onClick={() => scrollToSection(coloborationRef)}>
           КОЛЛАБОРАЦИЯ
         </button>
-        <button className={styles.link} onClick={() => scrollToSection(heroRef)}>
+        <button type="button" className={styles.link} onClick={() => scrollToSection(heroRef)}>
           Серия Mi&nbsp;10T
         </button>
-        <button className={styles.link} onClick={() => scrollToSection(shopRef)}>
+        <button type="button" className={styles.link} onClick={() => scrollToSection(shopRef)}>
           ГДЕ КУПИТЬ
         </button>
       </nav>

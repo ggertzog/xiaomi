@@ -5,6 +5,7 @@
   width: 1996px;
   object-fit: cover;
   object-position: center;
+  user-select: none;
 
   @include media-1996 {
     width: apxm(1996px);
