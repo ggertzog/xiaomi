@@ -2,12 +2,13 @@
 @use '@/styles/mixins.scss' as *;
 
 .video {
-  width: 1996px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center;
   user-select: none;
 
-  @include media-1996 {
-    width: apxm(1996px);
-  }
+  // @include media-1996 {
+  //   width: apxm(1996px);
+  // }
 }

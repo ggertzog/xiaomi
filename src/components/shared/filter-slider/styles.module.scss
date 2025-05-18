@@ -101,6 +101,7 @@
 
 .title {
   margin-left: 540px;
+  color: $color-pink;
 
   @include title;
 
@@ -162,7 +163,6 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-  // z-index: 3;
 
   @include media-1996 {
     padding-left: apxm(112px);
@@ -180,9 +180,10 @@
 }
 
 .description {
-  @include base;
   margin-left: 5px;
   width: 260px;
+
+  @include base;
 
   @include media-1996 {
     width: apxm(260px);
@@ -391,12 +392,17 @@
   }
 }
 
+.video {
+  z-index: 100;
+  pointer-events: all;
+}
+
 .active {
   opacity: 1;
   visibility: visible;
 }
 
-.imageContainer {
+.imageContainer { 
   position: absolute;
   overflow: hidden;
 }

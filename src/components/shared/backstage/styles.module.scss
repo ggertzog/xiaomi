@@ -123,8 +123,8 @@
 }
 
 .title {
-  @include title;
   color: $color-white;
+  @include title;
 }
 
 .text {

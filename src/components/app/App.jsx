@@ -10,6 +10,7 @@ import Backstage from '../shared/backstage/Backstage';
 import Shop from '../shared/shop/Shop';
 import FilterSlider from '../shared/filter-slider/FilterSlider';
 import Vertcial from '../shared/vertical/Vertcial';
+import Contest from '../shared/contest/Contest';
 
 export default function App() {
   const coloborationRef = useRef(null);
@@ -33,7 +34,8 @@ export default function App() {
       <Hero heroRef={heroRef} />
       <Concept />
       <FilterSlider />
-      <div className={styles.contest}></div>
+      <Contest />
+      {/* <div className={styles.contest}></div> */}
       <Collection />
       <VideoSection /> 
       <Backstage />

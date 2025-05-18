@@ -5,6 +5,7 @@ import { NextButton, TabButton } from '@/components/ui';
 import { content } from './slider-images';
 import arrow from '@/assets/arrow.png';
 import phone from '@/assets/phone.png';
+import { BackgroundVideo } from '../../ui';
 
 const buttonData = [
   { id: 1, title: 'cyberpunk' },
@@ -102,23 +103,50 @@ export default function FilterSlider() {
                   )}>
                   {sliderItem.map((img, imgIndex) => (
                     <div className={styles.imageContainer} key={`${arrIndex} + ${imgIndex}`}>
-                      <img
-                        src={img.content}
-                        alt={`image ${imgIndex}`}
-                        className={cn(
-                          styles.sliderImage,
-                          animationStage === ANIMATION_STAGES.ENTERING &&
-                            arrIndex + 1 === currentSlide &&
-                            styles.nextImage,
-                          animationStage === ANIMATION_STAGES.EXITING &&
-                            arrIndex + 1 === prevSlideIndex &&
-                            styles.prevImage,
-                          animationStage === ANIMATION_STAGES.CURRENTLY &&
-                            arrIndex + 1 === currentSlide &&
-                            styles.currentImage,
-                        )}
-                        style={{ '--delay': `${animationDelays[imgIndex] || 0}ms` }}
-                      />
+                      {img.type === 'image' ? (
+                        <img
+                          src={img.content}
+                          alt={`image ${imgIndex}`}
+                          className={cn(
+                            styles.sliderImage,
+                            animationStage === ANIMATION_STAGES.ENTERING &&
+                              arrIndex + 1 === currentSlide &&
+                              styles.nextImage,
+                            animationStage === ANIMATION_STAGES.EXITING &&
+                              arrIndex + 1 === prevSlideIndex &&
+                              styles.prevImage,
+                            animationStage === ANIMATION_STAGES.CURRENTLY &&
+                              arrIndex + 1 === currentSlide &&
+                              styles.currentImage,
+                          )}
+                          style={{ '--delay': `${animationDelays[imgIndex] || 0}ms` }}
+                        />
+                      ) : (
+                        <div
+                          className={cn(
+                            styles.sliderImage,
+                            animationStage === ANIMATION_STAGES.ENTERING &&
+                              arrIndex + 1 === currentSlide &&
+                              styles.nextImage,
+                            animationStage === ANIMATION_STAGES.EXITING &&
+                              arrIndex + 1 === prevSlideIndex &&
+                              styles.prevImage,
+                            animationStage === ANIMATION_STAGES.CURRENTLY &&
+                              arrIndex + 1 === currentSlide &&
+                              styles.currentImage,
+                          )}>
+                          <BackgroundVideo
+                            controls
+                            loop
+                            playsInline
+                            src={img.content}
+                            className={styles.video}
+                            style={{
+                              '--delay': `${animationDelays[imgIndex] || 0}ms`,
+                            }}
+                          />
+                        </div>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -160,7 +188,7 @@ export default function FilterSlider() {
             {item.word.split('').map((letter, letterIndex) => (
               <span
                 key={`${wordIndex}-${letterIndex}`}
-                style={{ '--char-index': letterIndex, '--random-delay': Math.random()}}
+                style={{ '--char-index': letterIndex, '--random-delay': Math.random() }}
                 className={cn(blink && styles.blinking)}>
                 {letter}
               </span>

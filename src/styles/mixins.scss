@@ -48,7 +48,7 @@ $dbreak: 1920px !default;
   font-weight: $font-weight-base;
   font-size: $font-size-h1;
   text-transform: uppercase;
-  color: $color-pink;
+  // color: $color-pink;
 
   @include media-1996 {
     font-size: apxm($font-size-h1);

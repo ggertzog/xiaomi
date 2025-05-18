@@ -1,0 +1,99 @@
+@use '@/styles/mixins.scss' as *;
+@use '@/styles/variables.scss' as *;
+
+.contest {
+  display: none;
+
+  @include media-375 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+
+  @include media-375 {
+    margin-top: apxm(262px);
+    margin-bottom: apxm(27px);
+    width: apxm(315px);
+  }
+}
+
+.image {
+  object-fit: cover;
+  object-position: center;
+
+  @include media-375 {
+    width: 100%;
+    height: 315px;
+  }
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  color: $color-white;
+  font-family: $font-family-primary;
+  font-weight: $font-weight-base;
+  position: relative;
+
+  @include media-375 {
+    font-size: apxm($font-size-base);
+    line-height: apxm($line-height-base);
+    top: apxm(-15px);
+  }
+
+  p:nth-of-type(2) {
+    @include media-375 {
+      margin-top: apxm(18px);
+    }
+  }
+}
+
+.title {
+  margin: 0;
+  padding: 0;
+  color: $color-pink;
+  position: relative;
+  display: block;
+  flex-direction: column;
+
+  @include title;
+
+  @include media-375 {
+    font-size: apxm(20px);
+    line-height: apxm(22px);
+    top: apxm(-42px);
+  }
+
+  span {
+    background-color: $color-black;
+  }
+}
+
+.stepsList {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+
+  @include media-375 {
+    gap: apxm(18px);
+  }
+}
+
+.link {
+  color: $color-white;
+  text-decoration: underline;
+
+  @include title;
+
+  @include media-375 {
+    margin-top: apxm(10px);
+    font-size: apxm(20px);
+    line-height: apxm($line-height-base);
+  }
+}

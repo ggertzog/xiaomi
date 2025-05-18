@@ -47,6 +47,7 @@
 }
 
 .title {
+  color: $color-pink;
   @include title;
 
   @include media-375 {
@@ -55,9 +56,9 @@
 }
 
 .description {
-  @include base;
   margin-top: 36px;
   width: 634px;
+  @include base;
 
   @include media-1996 {
     margin-top: apxm(36px);
@@ -81,10 +82,10 @@
 }
 
 .discount {
-  @include base;
   margin-top: 25px;
   width: 604px;
   color: $color-pink;
+  @include base;
 
   @include media-1996 {
     margin-top: apxm(25px);
