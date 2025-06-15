@@ -102,9 +102,9 @@
     left: apxm(16px);
   }
 
-  @include media-375 {
-    display: none;
-  }
+  // @include media-375 {
+  //   display: none;
+  // }
 }
 
 .content {
@@ -927,4 +927,14 @@
   display: flex;
   visibility: visible;
   opacity: 1;
+}
+
+.activeBackground {
+  display: flex;
+  visibility: visible;
+  opacity: 1;
+
+  @include media-375 {
+    display: none;
+  }
 }

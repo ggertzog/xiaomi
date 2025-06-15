@@ -78,10 +78,16 @@
 .stepsList {
   display: flex;
   flex-direction: column;
-  list-style: none;
+  list-style-type: none;
+  counter-reset: my-counter;
 
   @include media-375 {
     gap: apxm(18px);
+  }
+
+  li::before {
+    counter-increment: my-counter;
+    content: counter(my-counter) ') ';
   }
 }
 

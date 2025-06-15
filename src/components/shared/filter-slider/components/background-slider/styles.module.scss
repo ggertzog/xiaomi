@@ -1,0 +1,117 @@
+@use '@/styles/variables.scss' as *;
+@use '@/styles/mixins.scss' as *;
+
+.backgroundSlider {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include media-1280 {
+    top: apxm(60px);
+  }
+
+  @include media-375 {
+    display: none;
+  }
+}
+
+.customText {
+  display: none;
+  font-size: 280px;
+  background: url('@/assets/filter-slider/cyber-back.png');
+
+  @include backgoundWord;
+
+  @include media-1996 {
+    font-size: apxm(280px);
+  }
+
+  @include media-1280 {
+    font-size: apxm(195px);
+  }
+
+  &:nth-of-type(2),
+  &:nth-of-type(3) {
+    font-size: 205px;
+
+    @include media-1996 {
+      font-size: apxm(205px);
+    }
+
+    @include media-1280 {
+      font-size: apxm(135px);
+    }
+  }
+
+  &:nth-of-type(2) {
+    background: url('@/assets/filter-slider/color-back.png');
+    @include backgoundWord;
+  }
+
+  &:nth-of-type(3) {
+    background: url('@/assets/filter-slider/gold-back.png');
+    @include backgoundWord;
+  }
+
+  &:nth-of-type(4) {
+    background: url('@/assets/filter-slider/ice-back.png');
+    @include backgoundWord;
+  }
+}
+
+.customTextActive {
+  display: block;
+}
+
+.customText span {
+  display: inline-block;
+  background: inherit;
+  background-clip: text;
+  user-select: none;
+  pointer-events: none;
+}
+
+.blinking {
+  animation: chaotic-flicker 0.7s 0.3s infinite alternate-reverse;
+  animation-timing-function: cubic-bezier(0.1, 0.7, 0.9, 0.2);
+  animation-delay: calc(0.03s * var(--char-index) + calc(0.06s * var(--random-delay)));
+}
+
+@keyframes chaotic-flicker {
+  0% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+  15% {
+    opacity: 0.3;
+    filter: brightness(0.6);
+  }
+  30% {
+    opacity: 0.8;
+    filter: brightness(1.2);
+  }
+  45% {
+    opacity: 0.2;
+    filter: brightness(0.3);
+  }
+  60% {
+    opacity: 0.9;
+    filter: brightness(1.1);
+  }
+  75% {
+    opacity: 0.4;
+    filter: brightness(0.8);
+  }
+  90% {
+    opacity: 0.6;
+    filter: brightness(0.5);
+  }
+  100% {
+    opacity: 1;
+    filter: brightness(1);
+  }
+}
