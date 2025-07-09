@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './styles.module.scss';
 import { cn } from '@/lib/utils.js';
-import { TabButton, NextButton } from '../../ui';
+import { TabButton, NextButton } from '@/components/ui';
 import arrow from '@/assets/arrow.png';
 import { collectionBackgroundImages, collectionImages } from './slider-images';
 
@@ -60,6 +60,11 @@ export default function Сollection() {
       return () => clearTimeout(timer);
     }
   }, [animationStage, currentSlide]);
+
+
+  //TODO: заменить стандартную кнопку проигрывания
+  //READY: переделать (настроить) импорты под алиас (вроде сделал, но хочу уточнить стоит ли в компонентах делать импорты алиас)
+  //READY: переделать все названия под кебаб кейс
 
   return (
     <section className={styles.collection}>

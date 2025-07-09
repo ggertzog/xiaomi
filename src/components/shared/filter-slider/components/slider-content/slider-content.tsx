@@ -1,30 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './styles.module.scss';
-// import { content } from '@/components/shared/backstage/slider-images';
 import { BackgroundVideo, NextButton } from '@/components/ui';
 import { cn } from '@/lib/utils';
 import poster from '@/assets/preview-image.png';
 import arrow from '@/assets/arrow.png';
-import { buttonData } from '../../constants/constants';
+import { buttonData } from '../../mock-data/mock-data';
 import { ANIMATION_STAGES, AnimationStage, SliderData } from '../../types/types';
+import playImg from '@/assets/play.png';
 
 interface SliderContentProps {
   currentSlide: number;
   prevSlideIndex: number | null;
   animationStage: AnimationStage;
   animationDelays: Record<number, number>;
-  handleNext: () => void;
+  handleClickButton: () => void;
   content: SliderData;
 }
+
+// TODO: передавать контролс при плее
 
 export const SliderContent = ({
   currentSlide,
   animationStage,
   animationDelays,
   prevSlideIndex,
-  handleNext,
+  handleClickButton,
   content,
 }: SliderContentProps) => {
+  const [isPlaying, setIsPlaying] = useState(false);
+
   return (
     <div className={styles.sliderContent}>
       <div className={styles.slider}>
@@ -71,9 +75,8 @@ export const SliderContent = ({
                         styles.currentImage,
                     )}>
                     <BackgroundVideo
-                      controls
-                      loop
-                      playsInline
+                      controls={isPlaying && true}
+                      autoPlay={false}
                       poster={poster}
                       src={img.content}
                       className={styles.video}
@@ -83,6 +86,9 @@ export const SliderContent = ({
                         } as React.CSSProperties
                       }
                     />
+                    <button className={cn(styles.button, styles.controllButton)} type="button" style={{cursor: 'pointer'}}>
+                      <img src={isPlaying ? null : playImg} alt="play" className={styles.image} />
+                    </button>
                   </div>
                 )}
               </div>
@@ -94,7 +100,7 @@ export const SliderContent = ({
           <p>
             {String(currentSlide).padStart(2, '0')} / {String(buttonData.length).padStart(2, '0')}
           </p>
-          <NextButton title="Следующий фильтр" onClick={handleNext}>
+          <NextButton title="Следующий фильтр" onClick={handleClickButton}>
             <img className={styles.arrow} src={arrow} alt="arrow" />
           </NextButton>
         </div>

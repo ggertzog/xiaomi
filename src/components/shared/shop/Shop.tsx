@@ -1,11 +1,16 @@
 import React, { RefObject } from 'react';
 import styles from './styles.module.scss';
 import data from './mock-data';
-import { SocialIcon } from '@/components/ui';
+import { SocialLink } from '@/components/ui';
+import { ShopButton } from '@/components/ui/shop-button/shop-button';
 
 interface ShopProps {
   shopRef: RefObject<HTMLElement | null>;
 }
+
+//READY: обернуть список в тернарную проверку
+//READY: переработать нейминг сошлАйкон в сошлЛинк +
+//READY: батон вынести в компонент
 
 export default function Shop({ shopRef }: ShopProps) {
   return (
@@ -25,22 +30,22 @@ export default function Shop({ shopRef }: ShopProps) {
           корнера на&nbsp;2-м этаже.
         </p>
         <div className={styles.buttonContainer}>
-          <button type="button" className={styles.button}>
+          <ShopButton>
             Купить онлайн <br />
             смартфон из&nbsp;серии Mi&nbsp;10T
-          </button>
-          <button type="button" className={styles.button}>
+          </ShopButton>
+          <ShopButton>
             Купить онлайн <br />
             вещи из&nbsp;капсульной коллекции
-          </button>
+          </ShopButton>
         </div>
-        {(data ?? []).length > 0 && (
+        {data ? (
           <ul className={styles.iconContainer}>
             {data.map((item) => (
-              <SocialIcon key={item.id} {...item} />
+              <SocialLink key={item.id} {...item} />
             ))}
           </ul>
-        )}
+        ) : null}
         <p className={styles.copyright}>
           &copy;&nbsp;2020 Xiaomi &amp;&nbsp;AYT&Lambda;&Omicron; Creative. Все права защищены
         </p>

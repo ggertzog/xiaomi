@@ -4,7 +4,7 @@ import previewTitle from '@/assets/preview-title.png';
 import previewTitleMobile from '@/assets/preview-title-mobile.png';
 import natureVideoMP4 from '@/assets/video/nature.mp4';
 import natureVideoWEBM from '@/assets/video/nature.webm';
-import { BackgroundVideo } from '../../ui';
+import { BackgroundVideo } from '@/components/ui';
 import poster from '@/assets/preview-image.png';
 
 interface PreviewProps {
@@ -32,10 +32,6 @@ export default function Preview({ coloborationRef }: PreviewProps) {
           src={videoSources}
           className={styles.video}
           poster={poster}
-          loop
-          playsInline
-          autoPlay
-          muted
         />
       </div>
     </section>

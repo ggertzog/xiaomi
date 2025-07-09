@@ -4,16 +4,24 @@ export type ButtonData = {
 };
 
 export type BackgroundWord = {
-  word: string;
+  word: string | undefined;
 };
 
-export type AnimationStage = 'currently' | 'exiting' | 'entering';
+// export type AnimationStage = 'currently' | 'exiting' | 'entering';
 
-export const ANIMATION_STAGES = {
-  CURRENTLY: 'currently' as AnimationStage,
-  EXITING: 'exiting' as AnimationStage,
-  ENTERING: 'entering' as AnimationStage,
-};
+// export const ANIMATION_STAGES = {
+//   CURRENTLY: 'currently' as AnimationStage,
+//   EXITING: 'exiting' as AnimationStage,
+//   ENTERING: 'entering' as AnimationStage,
+// };
+
+export enum ANIMATION_STAGES {
+  CURRENTLY = 'currently',
+  EXITING = 'exiting',
+  ENTERING = 'entering'
+}
+
+export type AnimationStage = ANIMATION_STAGES;
 
 export type MediaItem =
   | { content: string; type: 'image' }

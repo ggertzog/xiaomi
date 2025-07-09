@@ -7,7 +7,7 @@ interface SocialIconProps {
   href: string;
 }
 
-export const SocialIcon = ({ src, alt, href, ...props }: SocialIconProps) => {
+export const SocialLink = ({ src, alt, href, ...props }: SocialIconProps) => {
   return (
     <li className={styles.listItem} {...props}>
       <a className={styles.link} href={href}>

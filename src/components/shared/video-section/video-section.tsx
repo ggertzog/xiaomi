@@ -74,8 +74,7 @@ export default function VideoSection() {
         src={videoSources}
         className={styles.video}
         poster={poster}
-        loop
-        playsInline
+        autoPlay={false}
       />
       <button
         className={cn(styles.button, styles.controllButton)}

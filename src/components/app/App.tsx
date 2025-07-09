@@ -1,16 +1,16 @@
 import React, { useRef, RefObject } from 'react';
 // import styles from './styles.module.scss';
-import Header from '../shared/header/Header';
-import Preview from '../shared/preview/Preview';
-import Hero from '../shared/hero/Hero';
-import Concept from '../shared/concept/Concept';
-import Collection from '../shared/collection/Сollection';
-import VideoSection from '../shared/video-section/VideoSection';
-import Backstage from '../shared/backstage/Backstage';
-import Shop from '../shared/shop/Shop';
-import FilterSlider from '../shared/filter-slider/FilterSlider';
-import Vertcial from '../shared/vertical/Vertcial';
-import Contest from '../shared/contest/Contest';
+import Preview from '@/components/shared/preview/preview';
+import Hero from '@/components/shared/hero/hero';
+import Concept from '@/components/shared/concept/concept';
+import Collection from '@/components/shared/collection/collection';
+import VideoSection from '@/components/shared/video-section/video-section';
+import Backstage from '@/components/shared/backstage/backstage';
+import Shop from '@/components/shared/shop/shop';
+import FilterSlider from '@/components/shared/filter-slider/filter-slider';
+import Vertcial from '@/components/shared/vertical/vertcial';
+import Contest from '@/components/shared/contest/contest';
+import Header from '@/components/shared/header/header';
 
 export default function App() {
   const coloborationRef = useRef<HTMLElement | null>(null);

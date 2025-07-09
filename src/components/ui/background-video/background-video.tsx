@@ -13,6 +13,8 @@ interface BackgroundVideoProps extends Omit<VideoHTMLAttributes<HTMLVideoElement
   ref?: RefObject<HTMLVideoElement | null>;
 }
 
+// READY: Настроить компонент изначально на автопроигрывание мутед плейислайн и тд
+
 export const BackgroundVideo = ({ className, src, ...props }: BackgroundVideoProps) => {
   return (
     <video
@@ -20,6 +22,10 @@ export const BackgroundVideo = ({ className, src, ...props }: BackgroundVideoPro
       width="100%"
       lazy-loading="true"
       preload="auto"
+      playsInline
+      autoPlay
+      muted
+      loop
       {...props}>
       {Array.isArray(src) ? (
         src.map((item, index) => <source key={index} src={item.src} type={item.type} />)

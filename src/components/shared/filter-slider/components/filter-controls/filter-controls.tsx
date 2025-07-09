@@ -5,13 +5,13 @@ import { TabButton } from '@/components/ui';
 
 interface FilterControlsProps {
   currentSlide: number;
-  handleSlideTo: (index: number) => void;
+  handleClickTabButton: (index: number) => void;
   buttonData: ButtonData[];
 }
 
 export const FilterControls = ({
   currentSlide,
-  handleSlideTo,
+  handleClickTabButton,
   buttonData,
 }: FilterControlsProps) => {
   return (
@@ -25,7 +25,7 @@ export const FilterControls = ({
             key={item.id}
             title={item.title}
             active={index === currentSlide - 1 ? 'activeButton' : ''}
-            onClick={() => handleSlideTo(index)}
+            onClick={() => handleClickTabButton(index)}
           />
         ))}
       </div>

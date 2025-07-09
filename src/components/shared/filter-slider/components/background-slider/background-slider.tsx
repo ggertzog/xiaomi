@@ -19,7 +19,7 @@ export const BackgroundSlider = ({ currentSlide, backgroundWords, blink }: Backg
             styles.customText,
             wordIndex === currentSlide - 1 && styles.customTextActive,
           )}>
-          {item.word.split('').map((letter, letterIndex) => (
+          {item.word?.split('').map((letter, letterIndex) => (
             <span
               key={`${wordIndex}-${letterIndex}`}
               style={

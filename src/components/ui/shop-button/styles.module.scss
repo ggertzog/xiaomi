@@ -1,0 +1,75 @@
+@use '@/styles/variables.scss' as *;
+@use '@/styles/mixins.scss' as *;
+
+.button {
+  padding: 27px 0;
+  width: 399px;
+  background-color: transparent;
+  border: 1px solid $color-pink;
+  border-radius: 10px;
+  font-family: $font-family-primary;
+  color: $color-white;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 20px;
+  letter-spacing: 0%;
+  text-align: center;
+  vertical-align: middle;
+  text-transform: uppercase;
+  cursor: pointer;
+  opacity: 1;
+  transition: 0.3s opacity ease-in;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  @media (pointer: coarse) {
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  @include media-1996 {
+    padding: apxm(27px) 0;
+    width: apxm(399px);
+    border-radius: apxm(10px);
+    font-size: apxm(15px);
+    line-height: apxm(20px);
+  }
+
+  @include media-1280 {
+    padding: apxm(27px) 0;
+    width: apxm(399px);
+    border-radius: apxm(10px);
+    font-size: apxm(15px);
+    line-height: apxm(20px);
+  }
+
+  @include media-375 {
+    width: apxm(312px);
+    padding: apxm(20px) 0;
+    border-radius: apxm(10px);
+    font-size: apxm(15px);
+    line-height: apxm(20px);
+  }
+}
+
+.button:nth-of-type(2) {
+  width: 429px;
+
+  @include media-1996 {
+    width: apxm(429px);
+  }
+
+  @include media-1280 {
+    width: apxm(429px);
+  }
+
+  @include media-375 {
+    width: apxm(312px);
+    padding: apxm(22px) 0;
+  }
+}
